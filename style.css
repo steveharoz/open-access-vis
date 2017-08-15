@@ -1,0 +1,130 @@
+.controls { 
+    background: #ddd; 
+    padding: 1em; 
+}
+.controls input { margin-right: 5%; }
+
+
+.session { 
+    margin-bottom: 0.25em;
+    padding: 1em 1em 1px 1em; 
+}
+.session h3 { margin-top: 0; }
+.infovis { background-color: #f0f0ff; }
+.vast    { background-color: #f0fff0; }
+.scivis  { background-color: #fff0f0; }
+.session h3::before {
+    display: inline-block;
+    font-size: 10px;
+    margin-left: -.5em;
+    margin-right: -.5em;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    vertical-align: 40%;
+    font-weight: bold;
+}
+.infovis h3 { color: hsla(240, 100%, 80%, 1); }
+.vast    h3 { color: hsla(120,  50%, 70%, 1); }
+.scivis  h3 { color: hsla(0,   100%, 80%, 1); }
+.infovis h3::before { content: "INFO"; }
+.vast    h3::before { content: "VAST"; }
+.scivis  h3::before { content: "SCI "; margin-right: .1em; }
+
+
+.paper { margin-bottom: 1em; overflow: hidden; }
+.paper .thumbholder { 
+    margin-right: -20px; 
+}
+.paper .thumbholder img {
+    background-color: rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.15); */
+    padding: 1px;
+    /* border: 1px rgba(0, 0, 0, 0.10) solid; */
+    width: 100%;
+    min-width: 100%;
+}
+.paper p {
+    margin-bottom: 0.1em;
+}
+.paper .title {
+    font-weight: bold;
+    margin-top: -0.25em;
+}
+@media (max-width: 768px) { 
+    .paper .authors {
+        white-space: nowrap;
+        overflow: hidden; 
+        text-overflow: ellipsis;
+    }
+    .paper .authors:hover,
+    .paper .authors:active,
+    .paper .authors:focus {
+        white-space: normal;
+        overflow: auto; 
+        text-overflow: clip;
+    }
+}
+.paper .time { font-family: Consolas, monaco, monospace; }
+.paper .abstract { 
+    max-height: 1.5em; 
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+.paper .abstract:hover {
+    max-height: none; 
+    white-space: normal;
+    overflow: auto; 
+    text-overflow: clip;
+}
+
+
+.paper .link[href=""] { 
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.1; 
+}
+.paper .link[href=""]:before { visibility: hidden; }
+.paper .link {
+    display: inline-block;
+    min-width: 15%;
+    max-height: 1em;
+    margin-right: 1em;
+}
+.paper .link:before { 
+    content: " ";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .35em;
+    width: 1em;
+    height: 1em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1em;
+    background-size: contain;
+}
+.paper .link.OADomain.PDF:before { background-image: url(images/file-text.svg); }
+.paper .link.OADomain.sourceMaterial:before { background-image: url(images/materials.svg); }
+.paper .link.OADomain.data:before { background-image: url(images/data.svg); }
+.paper .link.OADomain.projectPage:before { background-image: url(images/file-text.svg); }
+.paper .link.PDF:before { background-image: url(images/file-text-o.svg); }
+.paper .link.sourceMaterial:before { background-image: url(images/materials-o.svg); }
+.paper .link.data:before { background-image: url(images/data-o.svg); }
+.paper .link.projectPage:before { background-image: url(images/file-text-o.svg); }
+
+@media (max-width: 768px) { 
+    .paper { margin-bottom: 0.5em; }
+    .paper .link:before {
+        width: 2em;
+        height: 2em;
+        background-size: 2em;
+    }
+}
+
+.paper .link span { vertical-align: middle; display: inline-block; }
+@media (max-width: 768px) { 
+    .paper .link span { 
+        width: 0;
+        height: 2em; 
+    }
+}
