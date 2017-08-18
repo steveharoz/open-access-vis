@@ -79,52 +79,41 @@
 }
 
 
+.paper .links { clear: both; }
 .paper .link[href=""] { 
     pointer-events: none;
     cursor: default;
     opacity: 0.1; 
 }
-.paper .link[href=""]:before { visibility: hidden; }
 .paper .link {
+    clear: both;
     display: inline-block;
     min-width: 15%;
-    max-height: 1em;
     margin-right: 1em;
 }
-.paper .link:before { 
-    content: " ";
+.paper .link img {
     display: inline-block;
     vertical-align: middle;
     margin-right: .35em;
     width: 1em;
     height: 1em;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 1em;
-    background-size: contain;
 }
-.paper .link.OADomain.PDF:before { background-image: url(images/file-text.svg); }
-.paper .link.OADomain.sourceMaterial:before { background-image: url(images/materials.svg); }
-.paper .link.OADomain.data:before { background-image: url(images/data.svg); }
-.paper .link.OADomain.projectPage:before { background-image: url(images/file-text.svg); }
-.paper .link.PDF:before { background-image: url(images/file-text-o.svg); }
-.paper .link.sourceMaterial:before { background-image: url(images/materials-o.svg); }
-.paper .link.data:before { background-image: url(images/data-o.svg); }
-.paper .link.projectPage:before { background-image: url(images/file-text-o.svg); }
+.paper .link span { 
+    vertical-align: middle; 
+    display: inline-block; 
+}
 
 @media (max-width: 768px) { 
     .paper { margin-bottom: 0.5em; }
-    .paper .link:before {
+    .paper .link img {
         width: 2em;
         height: 2em;
         background-size: 2em;
     }
 }
 
-.paper .link span { vertical-align: middle; display: inline-block; }
 @media (max-width: 768px) { 
     .paper .link span { 
-        width: 0;
-        height: 2em; 
+        display: none;
     }
 }

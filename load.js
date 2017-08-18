@@ -2,7 +2,8 @@ var asdf = require("d3");
 var dataCSV, dataNested;
 var dayNames = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 var trackNames = ["InfoVis", "SciVis", "VAST"];
-var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "hal.inria.fr", "eprints.whiterose.ac.uk"];
+var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "hal.inria.fr", "hal.archives-ouvertes.fr", "eprints.whiterose.ac.uk"];
+var linkImages = {"PDF": "file-text", "Material": "materials", "Data": "data", "Explanation": "info"};
 var timeParser = d3.timeParse("%H:%M %p");
 var style = "col-md-12 col-lg-10 col-lg-offset-1";
 var thumbnails;
@@ -80,7 +81,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
 
   var right = papers.append("div")
     .classed("col-sm-1 col-xs-12", true);
-  var links = mid.append("div");
+  var links = mid.append("div").classed("links", true);
   links.appendLink("PDF", "PDF", d => d.AuthorPDF);
   links.appendLink("sourceMaterial", "Material", d => d.SourceMaterials);
   links.appendLink("data", "Data", d => d.Data);
@@ -91,6 +92,8 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
 });
 
 function getThumbnailPath(paper) {
+  if (paper.AuthorPDF == "")
+    return "";
   var path = "thumbnails/";
   var title = dropLeadingArticle(paper.Title);
   // make filename
@@ -120,8 +123,16 @@ d3.selection.prototype.appendLink = function (css, text, href) {
   var link = this.append("a")
     .classed("link " + css, true)
     .attr("target", "_blank")
-    .attr("href", href);
-  link.attr("tag", d => isOpenAccessDomain(href(d)) ? "Open Access site with permanent URL" : "")
-  link.classed("OADomain", d => isOpenAccessDomain(href(d)));
-  link.append("span").text(text);
+    .attr("href", href)
+    .attr("title", d => isOpenAccessDomain(href(d)) ? "Open Access site with permanent URL" : "")
+    .classed("OADomain", d => isOpenAccessDomain(href(d)));
+
+  link.append("img")
+    .attr("src", d => 
+      "images/" +
+      linkImages[text] + 
+      (isOpenAccessDomain(href(d)) ? ".svg" : "-o.svg"));
+
+  link.append("span")
+    .text(text);
 }
