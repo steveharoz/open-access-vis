@@ -13,6 +13,7 @@
 .infovis { background-color: #f0f0ff; }
 .vast    { background-color: #f0fff0; }
 .scivis  { background-color: #fff0f0; }
+.other  { background-color: #f0f0f0; }
 .session h3::before {
     display: inline-block;
     font-size: 10px;
@@ -26,12 +27,21 @@
 .infovis h3 { color: hsla(240, 100%, 80%, 1); }
 .vast    h3 { color: hsla(120,  50%, 70%, 1); }
 .scivis  h3 { color: hsla(0,   100%, 80%, 1); }
+.other   h3 { color: hsl(60, 00%, 80%); }
 .infovis h3::before { content: "INFO"; }
 .vast    h3::before { content: "VAST"; }
 .scivis  h3::before { content: "SCI "; margin-right: .1em; }
 
 
-.paper { margin-bottom: 1em; overflow: hidden; }
+.paper { 
+    margin-bottom: 1.5em; 
+    padding-top: 0.75em;
+    padding-bottom: 0.75em; 
+}
+
+/* .infovis .paper:nth-of-type(2n+1) { background-color: #e0e0ff; }
+.vast    .paper:nth-of-type(2n+1) { background-color: #e0ffe0; }
+.scivis  .paper:nth-of-type(2n+1) { background-color: #ffe0e0; } */
 .paper .thumbholder { 
     margin-right: -20px; 
 }
@@ -79,7 +89,7 @@
 }
 
 
-.paper .links { clear: both; }
+.paper .links { margin-top: -.25em; padding-right: 0; }
 .paper .link[href=""] { 
     pointer-events: none;
     cursor: default;
@@ -87,9 +97,8 @@
 }
 .paper .link {
     clear: both;
-    display: inline-block;
+    display: block;
     min-width: 15%;
-    margin-right: 1em;
 }
 .paper .link img {
     display: inline-block;
@@ -105,6 +114,12 @@
 
 @media (max-width: 768px) { 
     .paper { margin-bottom: 0.5em; }
+    .paper .links { margin-top: 0; margin-bottom: 1em; }
+    .paper .link.PDF { margin-left: -20px; }
+    .paper .link { 
+        display: inline-block; 
+        margin-right: 1em;
+    }
     .paper .link img {
         width: 2em;
         height: 2em;

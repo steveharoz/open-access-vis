@@ -1,7 +1,6 @@
 var asdf = require("d3");
 var dataCSV, dataNested;
 var dayNames = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-var trackNames = ["InfoVis", "SciVis", "VAST"];
 var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "hal.inria.fr", "hal.archives-ouvertes.fr", "eprints.whiterose.ac.uk"];
 var linkImages = {"PDF": "file-text", "Material": "materials", "Data": "data", "Explanation": "info"};
 var timeParser = d3.timeParse("%H:%M %p");
@@ -58,14 +57,14 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
         .attr("class", "paper row");
   
   var left = papers.append("div")
-    .classed("col-sm-2 col-xs-2 thumbholder", true);
+    .classed("col-sm-3 col-sm-2 col-xs-2 thumbholder", true);
   thumbnails = left.append("img")
         .classed("thumb", true)
         .attr("src", "images/blank.png")
         .on("error", function () {d3.select(this).attr("src", "images/blank.png"); });
         //.attr("src", getThumbnailPath);
   var mid = papers.append("div")
-    .classed("col-sm-9 col-xs-10", true);
+    .classed("col-sm-8 col-xs-10", true);
   mid.append("p")
         .classed("title", true)
         .text(d => d.Title);
@@ -80,12 +79,12 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
         .text(d => d.Abstract);
 
   var right = papers.append("div")
-    .classed("col-sm-1 col-xs-12", true);
-  var links = mid.append("div").classed("links", true);
-  links.appendLink("PDF", "PDF", d => d.AuthorPDF);
-  links.appendLink("sourceMaterial", "Material", d => d.SourceMaterials);
-  links.appendLink("data", "Data", d => d.Data);
-  links.appendLink("projectPage", "Explanation", d => d.ExplanationPage);
+    .classed("col-sm-2 col-sm-offset-0 col-xs-10 col-xs-offset-2 links", true);
+  var links = //mid.append("div").classed("links", true);
+  right.appendLink("PDF", "PDF", d => d.AuthorPDF);
+  right.appendLink("sourceMaterial", "Material", d => d.SourceMaterials);
+  right.appendLink("data", "Data", d => d.Data);
+  right.appendLink("projectPage", "Explanation", d => d.ExplanationPage);
 
   // load thumbnails
   thumbnails.attr("src", getThumbnailPath);
