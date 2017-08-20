@@ -11,14 +11,18 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   if (error) throw error;
   dataCSV = data;
   
+  dataCSV = dataCSV.map(d => { d.PM = timeParser(d.ConferenceTimeStart).getHours() > 12; return d; });
+  console.log(dataCSV);
+
   // nest the data
   dataNested = d3.nest()
     // day
-    .key(d => d.ConferenceDay)
-    .sortKeys((a,b) => dayNames.indexOf(a) - dayNames.indexOf(b))
+    .key(d => (dayNames.indexOf(d.ConferenceDay) + (+d.PM * 0.5)) + "|" + d.ConferenceDay + " " + (d.PM ? "afternoon" : "morning"))
+    .sortKeys((a,b) => a.split("|")[0] - b.split("|")[0])
     // session
     .key(d => d.ConferenceTrack + "|" + d.ConferenceSession)
     .entries(dataCSV);
+  console.log(dataNested);
   dataNested = dataNested.map(d => {
       // sort papers within each session
       d.values = d.values.map(s => {
@@ -42,7 +46,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
         .classed(style, true);
   
   days.append("h2")
-    .text(d => d.key);
+    .text(d => d.key.split("|")[1]);
   
   var sessions = days.selectAll(".session")
     .data(d => d.values).enter()
