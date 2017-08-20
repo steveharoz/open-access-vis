@@ -57,12 +57,15 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
         .attr("class", "paper row");
   
   var left = papers.append("div")
-    .classed("col-sm-3 col-sm-2 hidden-xs thumbholder", true);
-  thumbnails = left.append("img")
-        .classed("thumb", true)
-        .attr("src", "images/blank.png");
-  left.append("div").classed("expandHolder", true)
-      .append("img").attr("src", "images/chevron-circle-down.svg");
+    .classed("col-sm-3 col-sm-2 hidden-xs thumbExpander", true);
+  left.append("img")
+    .classed("spacer", true)
+    .attr("src", "images/blank.png");
+  var expander = left.append("div").classed("thumbExpanderContainer", true);
+  thumbnails = expander.append("div").classed("thumbContainer", true).append("img")
+    .classed("thumb", true)
+    .attr("src", "images/blank.png");
+  expander.append("img").classed("expander", true).attr("src", "images/chevron-circle-down.svg");
 
   var mid = papers.append("div")
     .classed("col-sm-8 col-xs-12", true);
@@ -75,18 +78,23 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   mid.append("p")
         .classed("time", true)
         .text(d => d.ConferenceTimeStart + " - " + d.ConferenceTimeEnd + " " + d.ConferenceDay);
-  var abstract = mid.append("p")
-        .classed("abstract", true)
-        .text(d => d.Abstract);
 
   var right = papers.append("div")
     .classed("col-sm-2 col-xs-12 links", true);
-  //var links = mid.append("div").classed("links", true);
   var mobileThumbnails = right.append("img").classed("thumb", true);
   right.appendLink("PDF", "PDF", d => d.AuthorPDF);
   right.appendLink("sourceMaterial", "Material", d => d.SourceMaterials);
   right.appendLink("data", "Data", d => d.Data);
   right.appendLink("projectPage", "Explanation", d => d.ExplanationPage);
+
+  var expandInfo = papers.append("div")
+    .classed("col-sm-8 col-xs-12 expand", true);
+  expandInfo.append("p")
+    .classed("abstract", true)
+    .html(d => d.Abstract);
+  expandInfo.append("pre")
+    .classed("citation", true)
+    .text(d => d.DOI);
 
   // load thumbnails
   thumbnails.attr("src", getThumbnailPath);
