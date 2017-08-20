@@ -115,7 +115,11 @@
 @media (max-width: 768px) { 
     .paper { margin-bottom: 0.5em; }
     .paper .links { margin-top: 0; margin-bottom: 1em; }
-    .paper .link.PDF { margin-left: -20px; }
+    .paper .links .thumb { 
+        max-height: 2em; 
+        min-width: 15%;
+        margin-right: 1em;
+    }
     .paper .link { 
         display: inline-block; 
         margin-right: 1em;

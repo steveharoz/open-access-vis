@@ -57,14 +57,13 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
         .attr("class", "paper row");
   
   var left = papers.append("div")
-    .classed("col-sm-3 col-sm-2 col-xs-2 thumbholder", true);
+    .classed("col-sm-3 col-sm-2 hidden-xs thumbholder", true);
   thumbnails = left.append("img")
         .classed("thumb", true)
-        .attr("src", "images/blank.png")
-        .on("error", function () {d3.select(this).attr("src", "images/blank.png"); });
-        //.attr("src", getThumbnailPath);
+        .attr("src", "images/blank.png");
+
   var mid = papers.append("div")
-    .classed("col-sm-8 col-xs-10", true);
+    .classed("col-sm-8 col-xs-12", true);
   mid.append("p")
         .classed("title", true)
         .text(d => d.Title);
@@ -79,8 +78,9 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
         .text(d => d.Abstract);
 
   var right = papers.append("div")
-    .classed("col-sm-2 col-sm-offset-0 col-xs-10 col-xs-offset-2 links", true);
-  var links = //mid.append("div").classed("links", true);
+    .classed("col-sm-2 col-xs-12 links", true);
+  //var links = mid.append("div").classed("links", true);
+  var mobileThumbnails = right.append("img").classed("thumb", true);
   right.appendLink("PDF", "PDF", d => d.AuthorPDF);
   right.appendLink("sourceMaterial", "Material", d => d.SourceMaterials);
   right.appendLink("data", "Data", d => d.Data);
@@ -88,6 +88,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
 
   // load thumbnails
   thumbnails.attr("src", getThumbnailPath);
+  mobileThumbnails.attr("src", getThumbnailPath);
 });
 
 function getThumbnailPath(paper) {
@@ -123,7 +124,7 @@ d3.selection.prototype.appendLink = function (css, text, href) {
     .classed("link " + css, true)
     .attr("target", "_blank")
     .attr("href", href)
-    .attr("title", d => isOpenAccessDomain(href(d)) ? "Open Access site with permanent URL" : "")
+    .attr("title", d => isOpenAccessDomain(href(d)) ? "Open access repository with permanent URL" : "Personal/Institutional site")
     .classed("OADomain", d => isOpenAccessDomain(href(d)));
 
   link.append("img")
