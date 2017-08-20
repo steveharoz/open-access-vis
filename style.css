@@ -27,7 +27,7 @@
 .infovis h3 { color: hsla(240, 100%, 80%, 1); }
 .vast    h3 { color: hsla(120,  50%, 70%, 1); }
 .scivis  h3 { color: hsla(0,   100%, 80%, 1); }
-.other   h3 { color: hsl(60, 00%, 80%); }
+.other   h3 { color: hsl(60, 00%, 70%); }
 .infovis h3::before { content: "INFO"; }
 .vast    h3::before { content: "VAST"; }
 .scivis  h3::before { content: "SCI "; margin-right: .1em; }
