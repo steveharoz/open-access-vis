@@ -61,6 +61,8 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   thumbnails = left.append("img")
         .classed("thumb", true)
         .attr("src", "images/blank.png");
+  left.append("div").classed("expandHolder", true)
+      .append("img").attr("src", "images/chevron-circle-down.svg");
 
   var mid = papers.append("div")
     .classed("col-sm-8 col-xs-12", true);
@@ -93,7 +95,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
 
 function getThumbnailPath(paper) {
   if (paper.AuthorPDF == "")
-    return "";
+    return "images/blank.png";
   var path = "thumbnails/";
   var title = dropLeadingArticle(paper.Title);
   // make filename

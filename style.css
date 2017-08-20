@@ -44,14 +44,32 @@
 .scivis  .paper:nth-of-type(2n+1) { background-color: #ffe0e0; } */
 .paper .thumbholder { 
     margin-right: -20px; 
+    cursor: pointer;
 }
-.paper .thumbholder img {
+.paper .thumbholder > img {
     background-color: rgba(0, 0, 0, 0.15);
     /* box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.15); */
     padding: 1px;
     /* border: 1px rgba(0, 0, 0, 0.10) solid; */
     width: 100%;
     min-width: 100%;
+}
+.paper .thumbholder .expandHolder { 
+    padding: inherit; 
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    visibility: hidden;
+}
+.paper .thumbholder:hover .expandHolder { visibility: visible; }
+.paper .thumbholder:active .expandHolder { opacity: 1; }
+.paper .thumbholder .expandHolder img {
+    width: 40%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
 }
 .paper p {
     margin-bottom: 0.1em;
@@ -90,6 +108,7 @@
 
 
 .paper .links { margin-top: -.25em; padding-right: 0; }
+.paper .links .thumb { display: none; }
 .paper .link[href=""] { 
     pointer-events: none;
     cursor: default;
