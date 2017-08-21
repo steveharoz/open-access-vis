@@ -1,5 +1,6 @@
-var asdf = require("d3");
-var dataCSV, dataNested;
+var asdf = require("d3"); // dummy call for vscode
+var dataCSV, dataNested; // keep data global
+var thumbnails, abstracts; // set the big things last
 var dayNames = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 var dayAbrevs = {"Tuesday morning": "Tu AM", "Tuesday afternoon": "Tu PM", 
                  "Wednesday morning": "W AM", "Wednesday afternoon": "W PM", 
@@ -10,9 +11,10 @@ var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "hal.inri
 var linkImages = {"PDF": "file-text", "Material": "materials", "Data": "data", "Explanation": "info"};
 var timeParser = d3.timeParse("%H:%M %p");
 var style = "col-md-12 col-lg-10 col-lg-offset-1";
-var thumbnails, abstracts;
-var untouched = true; // whether there's been any interaction
+var untouched = true;
 
+
+// load and parse the data
 d3.csv("openaccessvis.csv", d => d, function(error, data) {
   if (error) throw error;
   dataCSV = data;
@@ -41,6 +43,12 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
       return d;
   });
 
+  buildPage();
+});
+
+// use the data to construct the page elements
+function buildPage() {
+  ///// Day /////
   var days = d3.select(".container")
     .selectAll(".day")
     .data(dataNested).enter();
@@ -56,6 +64,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
 
   makeDayButtons();
   
+  ///// session /////
   var sessions = days.selectAll(".session")
     .data(d => d.values).enter()
     .append("div")
@@ -63,26 +72,29 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
         .classed("session", true);
   sessions.append("h3").text(d => d.values[0].ConferenceSession);
 
+  ///// paper /////
   var papers = sessions.selectAll(".paper")
     .data(s => s.values).enter()
     .append("div")
         .attr("id", getSimpleName)
         .attr("class", "paper row");
   
+  ///// thumbnail /////
   var left = papers.append("div")
     .classed("col-sm-3 col-sm-2 hidden-xs thumbExpander", true);
   left.append("img")
     .classed("spacer", true)
     .attr("src", "images/blank.png");
+
+  ///// expander button  /////
   var expander = left.append("div").classed("thumbExpanderContainer", true);
   thumbnails = expander.append("div").classed("thumbContainer", true).append("img")
     .classed("thumb", true)
     .attr("src", "images/blank.png");
   expander.append("img").classed("expander", true).attr("src", "images/chevron-circle-down.svg");
-
-  // expand event handler
   left.on("click", (d,i) => expandEventHandler(left, d));
 
+  ///// basic info /////
   var mid = papers.append("div")
     .classed("col-sm-8 col-xs-12", true);
   mid.append("p")
@@ -95,6 +107,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
         .classed("time", true)
         .text(d => d.ConferenceTimeStart + " - " + d.ConferenceTimeEnd + " " + d.ConferenceDay);
 
+  ///// links /////
   var right = papers.append("div")
     .classed("col-sm-2 col-xs-12 links", true);
   var mobileThumbnails = right.append("img").classed("thumb", true);
@@ -103,6 +116,8 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   right.appendLink("data", "Data", d => d.Data);
   right.appendLink("projectPage", "Explanation", d => d.ExplanationPage);
 
+
+  ///// expander content  /////
   var expandInfo = papers.append("div")
     .attr("id", d => getSimpleName(d) + "_expandInfo")
     .classed("col-sm-8 col-xs-12 expandInfo collapse", true);
@@ -112,25 +127,20 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
     .classed("citation", true)
     .text(makeCitation);
 
-  // load thumbnails
+  // load thumbnails last
   thumbnails.attr("src", getThumbnailPath);
   mobileThumbnails.attr("src", getThumbnailPath);
-  abstracts.html(d => d.Abstract);
-});
+} // end buildPage()
 
+
+
+// make a simple name for the paper
 function getSimpleName(paper, sep = "_") {
   var title = dropLeadingArticle(paper.Title);
   return title.split(/[^\w]/, 1)[0].toLowerCase()
          + sep
          + paper.Authors.split(/[^\w]/, 1)[0].toLowerCase();
 }
-
-function getThumbnailPath(paper) {
-  if (paper.AuthorPDF == "")
-    return "images/blank.png";
-  return "thumbnails/" + getSimpleName(paper, "-") + ".png";
-}
-
 function dropLeadingArticle (text) {
   if (text.startsWith("A ")) text = text.substring(2);
   if (text.startsWith("An ")) text = text.substring(3);
@@ -138,6 +148,14 @@ function dropLeadingArticle (text) {
   return text;
 }
 
+// get thumbnail image
+function getThumbnailPath(paper) {
+  if (paper.AuthorPDF == "")
+    return "images/blank.png";
+  return "thumbnails/" + getSimpleName(paper, "-") + ".png";
+}
+
+// is the pdf on a true open access repository
 function isOpenAccessDomain(href) {
   for (var i = 0; i < OADomains.length; i++) {
      if (href.includes(OADomains[i])) 
@@ -146,6 +164,7 @@ function isOpenAccessDomain(href) {
   return false;
 }
 
+// add a link and icon
 d3.selection.prototype.appendLink = function (css, text, href) {
   var link = this.append("a")
     .classed("link " + css, true)
@@ -164,8 +183,7 @@ d3.selection.prototype.appendLink = function (css, text, href) {
     .text(text);
 }
 
-
-
+// make text that can be copied for a citation
 function makeCitation(paper) {
   var APA = "";
   var authors = paper.Authors.split(", ");
@@ -189,11 +207,11 @@ function makeCitation(paper) {
   bibtex += "  year = " + paper.PublicationYear + "\n";
   bibtex += "  DOI = " + paper.DOI + "\n";
   bibtex += "}";
-  
 
   return APA + "\n\n" + bibtex;
 }
 
+// show/hide the expand region
 function expandEventHandler(left, paper) {
   if (untouched)
     abstracts.html(d => d.Abstract);
@@ -202,6 +220,7 @@ function expandEventHandler(left, paper) {
   $('#' + id).collapse('toggle');
 }
 
+// make button to show/hide each day
 function makeDayButtons() {
   d3.select("#dayToggles")
     .selectAll("button")
