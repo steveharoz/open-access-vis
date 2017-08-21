@@ -65,6 +65,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   var papers = sessions.selectAll(".paper")
     .data(s => s.values).enter()
     .append("div")
+        .attr("id", d => getSimpleName(d, sep = "_"))
         .attr("class", "paper row");
   
   var left = papers.append("div")
@@ -77,6 +78,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
     .classed("thumb", true)
     .attr("src", "images/blank.png");
   expander.append("img").classed("expander", true).attr("src", "images/chevron-circle-down.svg");
+  left.on("click", (d,i) => console.log(d));
 
   var mid = papers.append("div")
     .classed("col-sm-8 col-xs-12", true);
@@ -99,7 +101,8 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   right.appendLink("projectPage", "Explanation", d => d.ExplanationPage);
 
   var expandInfo = papers.append("div")
-    .classed("col-sm-8 col-xs-12 expand", true);
+    .attr("id", d =>  getSimpleName(d, sep = "_") + "_expandInfo")
+    .classed("col-sm-8 col-xs-12 expandInfo", true);
   expandInfo.append("p")
     .classed("abstract", true)
     .html(d => d.Abstract);
@@ -108,14 +111,14 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
     .text(makeCitation);
 
   // load thumbnails
-  thumbnails.attr("src", getThumbnailPath);
-  mobileThumbnails.attr("src", getThumbnailPath);
+  //thumbnails.attr("src", getThumbnailPath);
+  //mobileThumbnails.attr("src", getThumbnailPath);
 });
 
-function getSimpleName(paper) {
+function getSimpleName(paper, sep = "-") {
   var title = dropLeadingArticle(paper.Title);
   return title.split(/[^\w]/, 1)[0].toLowerCase()
-         + "-"
+         + sep
          + paper.Authors.split(/[^\w]/, 1)[0].toLowerCase();
 }
 
