@@ -1,9 +1,8 @@
 .controls { 
-    background: #ddd; 
+    background: #f0f0f0; 
     padding: 1em; 
 }
 .controls input { margin-right: 5%; }
-
 
 .session { 
     margin-bottom: 0.25em;
@@ -81,11 +80,12 @@
     right: 0;
     bottom: 0;
     margin: 0 auto;
-    opacity: 0.5;
+    opacity: 0.66;
     visibility: hidden;
 }
 .paper p {
     margin-bottom: 0.1em;
+    color: hsla(0,0%,0%,0.75);
 }
 .paper .title {
     font-weight: bold;
@@ -106,19 +106,10 @@
     }
 }
 .paper .time { font-family: Consolas, monaco, monospace; }
-.paper .abstract { 
-    max-height: 1.5em; 
-    white-space: nowrap;
-    overflow: hidden; 
-    text-overflow: ellipsis;
+.paper pre {
+    background-color: hsla(0,0%,0%,0.05);
+    border: 1px solid hsla(0,0%,0%,0.15);
 }
-.paper .abstract:hover {
-    max-height: none; 
-    white-space: normal;
-    overflow: auto; 
-    text-overflow: clip;
-}
-
 
 .paper .links { margin-top: -.25em; padding-right: 0; }
 .paper .links .thumb { display: none; }
@@ -131,6 +122,7 @@
     clear: both;
     display: block;
     min-width: 15%;
+    opacity: 0.75;
 }
 .paper .link img {
     display: inline-block;
@@ -167,4 +159,59 @@
     .paper .link span { 
         display: none;
     }
+}
+
+.btn { 
+    border-radius: 3px; 
+    min-width: 10%; 
+}
+.btn:focus, .btn:active:focus, .btn.active:focus { outline-style: none; }
+.btn.active:not(:active) { box-shadow: none; }
+.btn[aria-pressed="false"] span:after { 
+    font-family: 'Glyphicons Halflings';
+    content: "\e157";
+    margin-left: 0.5em;
+    font-size: 80%;
+}
+.btn[aria-pressed="true"] span:after { 
+    font-family: 'Glyphicons Halflings';
+    content: "\e067";
+    margin-left: 0.5em;
+    font-size: 80%;
+}
+.btn-infovis:hover, .btn-infovis:focus:hover {
+    color: hsla(240, 100%, 60%, 1);
+    background-color: hsla(240, 100%, 80%, 1);
+}
+.btn-infovis, .btn-infovis:focus {
+    color: hsla(240, 100%, 70%, 1);
+    background-color: hsla(240, 100%, 97%, 1);
+    border-color: hsla(240, 100%, 80%, 1);
+}
+.btn-vast:hover, .btn-vast:focus:hover {
+    color: hsla(120, 50%, 40%, 1);
+    background-color: hsla(120, 50%, 60%, 1);
+}
+.btn-vast, .btn-vast:focus {
+    color: hsla(120, 50%, 60%, 1);
+    background-color: hsla(120, 50%, 97%, 1);
+    border-color: hsla(120, 50%, 60%, 1);
+}
+.btn-scivis:hover, .btn-scivis:focus:hover {
+    color: hsla(0, 100%, 60%, 1);
+    background-color: hsla(0, 100%, 80%, 1);
+}
+.btn-scivis, .btn-scivis:focus {
+    color: hsla(0, 100%, 70%, 1);
+    background-color: hsla(0, 100%, 97%, 1);
+    border-color: hsla(0, 100%, 80%, 1);
+}
+.btn-other:hover, .btn-other:focus:hover {
+    color: hsla(0, 0%, 40%, 1);
+    background-color: hsla(0, 0%, 70%, 1);
+}
+.btn-other, .btn-other:focus {
+    color: hsla(0, 0%, 60%, 1);
+    background-color: hsla(240, 0%, 97%, 1);
+    border-color: hsla(0, 0%, 70%, 1);
 }

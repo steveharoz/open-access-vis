@@ -31,10 +31,10 @@
           </div>
           <div class="col-md-12 col-lg-10 col-lg-offset-1">
             <div class="controls">
-              InfoVis: <input type="checkbox" id="infovisCheck" checked onchange="d3.selectAll('.infovis').style('display', this.checked ? 'block' : 'none');">
-              SciVis: <input type="checkbox" id="scivisCheck" checked onchange="d3.selectAll('.scivis').style('display', this.checked ? 'block' : 'none');">
-              VAST: <input type="checkbox" id="vastCheck" checked onchange="d3.selectAll('.vast').style('display', this.checked ? 'block' : 'none');">
-              Other: <input type="checkbox" id="otherCheck" checked onchange="d3.selectAll('.other').style('display', this.checked ? 'block' : 'none');">
+              <button type="button" class="btn active btn-infovis" data-toggle="button" data-subset=".infovis" aria-pressed="true" autocomplete="off"> <span>InfoVis</span> </button>
+              <button type="button" class="btn active btn-scivis"  data-toggle="button" data-subset=".scivis"  aria-pressed="true" autocomplete="off"> <span>SciVis</span> </button>
+              <button type="button" class="btn active btn-vast"    data-toggle="button" data-subset=".vast"    aria-pressed="true" autocomplete="off"> <span>VAST</span> </button>
+              <button type="button" class="btn active btn-other"   data-toggle="button" data-subset=".other"   aria-pressed="true" autocomplete="off"> <span>General</span> </button>
             </div>
             <!-- <iframe src="https://player.vimeo.com/video/201758901?title=0&byline=0" height="200" width="100%" frameborder="0" allowfullscreen></iframe> -->
           </div>

@@ -150,3 +150,12 @@ d3.selection.prototype.appendLink = function (css, text, href) {
   link.append("span")
     .text(text);
 }
+
+
+d3.selectAll('button').on("click", function() {
+  var subset = d3.select(this).node().dataset["subset"];
+  var isPressed = d3.select(this).attr("aria-pressed");
+  console.log(subset);
+  console.log(isPressed);
+  d3.selectAll(subset).style("display", isPressed == "false" ? "block" : "none");
+});
