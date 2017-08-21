@@ -68,7 +68,7 @@
     left: 0;
 }
 .paper .thumbExpander .thumbExpanderContainer .thumbContainer {
-    background-color: rgba(0, 0, 0, 0.15); 
+    background-color: rgba(0, 0, 0, 0.08); 
     width: 100%;
     clear: both;
 }
@@ -81,7 +81,7 @@
     right: 0;
     bottom: 0;
     margin: 0 auto;
-    opacity: 0.5;
+    opacity: 0.75;
     visibility: hidden;
 }
 .paper .isExpanded .expander { transform: rotate(180deg); }
@@ -109,6 +109,7 @@
     }
 }
 .paper .time { font-family: Consolas, monaco, monospace; }
+.paper .expandInfo .abstract { margin-top: .5em; }
 .paper .expandInfo pre {
     background-color: hsla(0,0%,0%,0.05);
     border: 1px solid hsla(0,0%,0%,0.15);
@@ -117,7 +118,7 @@
     word-break: normal;
 }
 
-.paper .links { margin-top: -.25em; padding-right: 0; }
+.paper .links { margin-top: -.25em; padding-right: 0; margin-bottom: -2em; }
 .paper .links .thumb { display: none; }
 .paper .link[href=""] { 
     pointer-events: none;
@@ -234,3 +235,13 @@
     background-color: hsla(240, 0%, 99%, 1);
     border-color: hsla(0, 0%, 70%, 1);
 }
+
+.paper.closedAccess .thumbExpander { cursor: default; }
+.paper.closedAccess .links,
+.paper.closedAccess .expander,
+.paper.closedAccess .time { display: none; }
+.paper.closedAccess .title, 
+.paper.closedAccess .authors,
+.paper.closedAccess .closedAccessMessage { opacity: 0.5; }
+.closedAccessMessage { display: none; }
+.paper.closedAccess .closedAccessMessage { display: block; font-style: italic; }

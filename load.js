@@ -77,7 +77,8 @@ function buildPage() {
     .data(s => s.values).enter()
     .append("div")
         .attr("id", getSimpleName)
-        .attr("class", "paper row");
+        .attr("class", "paper row")
+        .classed("closedAccess", d => d.AuthorPDF == "");
   
   ///// thumbnail /////
   var left = papers.append("div")
@@ -90,7 +91,7 @@ function buildPage() {
   var expander = left.append("div").classed("thumbExpanderContainer", true);
   thumbnails = expander.append("div").classed("thumbContainer", true).append("img")
     .classed("thumb", true)
-    .attr("src", "images/blank.png");
+    .attr("src", "images/Closed_Access_Research.svg");
   expander.append("img").classed("expander", true).attr("src", "images/chevron-circle-down.svg");
   left.on("click", (d,i) => expandEventHandler(left, d));
 
@@ -106,6 +107,9 @@ function buildPage() {
   mid.append("p")
         .classed("time", true)
         .text(d => d.ConferenceTimeStart + " - " + d.ConferenceTimeEnd + " " + d.ConferenceDay);
+  mid.append("p")
+        .classed("closedAccessMessage", true)
+        .html("This paper does not appear to be available. Please encourage the authors to post their work.");
 
   ///// links /////
   var right = papers.append("div")
@@ -151,7 +155,7 @@ function dropLeadingArticle (text) {
 // get thumbnail image
 function getThumbnailPath(paper) {
   if (paper.AuthorPDF == "")
-    return "images/blank.png";
+    return "images/Closed_Access_Research.svg";
   return "thumbnails/" + getSimpleName(paper, "-") + ".png";
 }
 
@@ -241,5 +245,14 @@ function makeDayButtons() {
     console.log(subset);
     console.log(isPressed);
     d3.selectAll(subset).style("display", isPressed == "false" ? "block" : "none");
+  });
+}
+
+// just for dev
+function checkImageSizes() {
+  d3.selectAll(".thumb").each(function(d) {
+    var a = d3.select(this).node();
+    if (a.naturalHeight > a.naturalWidth * .75)
+    console.log(a.src);
   });
 }
