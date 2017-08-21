@@ -10,7 +10,8 @@ var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "hal.inri
 var linkImages = {"PDF": "file-text", "Material": "materials", "Data": "data", "Explanation": "info"};
 var timeParser = d3.timeParse("%H:%M %p");
 var style = "col-md-12 col-lg-10 col-lg-offset-1";
-var thumbnails;
+var thumbnails, abstracts;
+var untouched = true; // whether there's been any interaction
 
 d3.csv("openaccessvis.csv", d => d, function(error, data) {
   if (error) throw error;
@@ -80,11 +81,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   expander.append("img").classed("expander", true).attr("src", "images/chevron-circle-down.svg");
 
   // expand event handler
-  left.on("click", (d,i) => {
-    left.classed("isExpanded", !left.classed("isExpanded"));
-    var id = getSimpleName(d) + "_expandInfo";
-    $('#' + id).collapse('toggle');
-  });
+  left.on("click", (d,i) => expandEventHandler(left, d));
 
   var mid = papers.append("div")
     .classed("col-sm-8 col-xs-12", true);
@@ -109,9 +106,8 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   var expandInfo = papers.append("div")
     .attr("id", d => getSimpleName(d) + "_expandInfo")
     .classed("col-sm-8 col-xs-12 expandInfo collapse", true);
-  expandInfo.append("p")
-    .classed("abstract", true)
-    .html(d => d.Abstract);
+  abstracts = expandInfo.append("p")
+    .classed("abstract", true);
   expandInfo.append("pre")
     .classed("citation", true)
     .text(makeCitation);
@@ -119,6 +115,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   // load thumbnails
   thumbnails.attr("src", getThumbnailPath);
   mobileThumbnails.attr("src", getThumbnailPath);
+  abstracts.html(d => d.Abstract);
 });
 
 function getSimpleName(paper, sep = "_") {
@@ -197,6 +194,13 @@ function makeCitation(paper) {
   return APA + "\n\n" + bibtex;
 }
 
+function expandEventHandler(left, paper) {
+  if (untouched)
+    abstracts.html(d => d.Abstract);
+  left.classed("isExpanded", !left.classed("isExpanded"));
+  var id = getSimpleName(paper) + "_expandInfo";
+  $('#' + id).collapse('toggle');
+}
 
 function makeDayButtons() {
   d3.select("#dayToggles")
