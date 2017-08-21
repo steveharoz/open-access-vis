@@ -4,7 +4,8 @@ var dayNames = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursda
 var dayAbrevs = {"Tuesday morning": "Tu AM", "Tuesday afternoon": "Tu PM", 
                  "Wednesday morning": "W AM", "Wednesday afternoon": "W PM", 
                  "Thursday morning": "Th AM", "Thursday afternoon": "Th PM", 
-                 "Friday morning": "F AM", "Friday afternoon": "F PM", }
+                 "Friday morning": "F AM", "Friday afternoon": "F PM"};
+var journals = {"TVCG": "Transactions on Visualization and Computer Graphics", "C&GA": "Computer Graphics and Applications", "VAST": "Proceedings of IEEE VAST 2016"};
 var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "hal.inria.fr", "hal.archives-ouvertes.fr", "eprints.whiterose.ac.uk"];
 var linkImages = {"PDF": "file-text", "Material": "materials", "Data": "data", "Explanation": "info"};
 var timeParser = d3.timeParse("%H:%M %p");
@@ -104,24 +105,24 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
     .html(d => d.Abstract);
   expandInfo.append("pre")
     .classed("citation", true)
-    .text(d => d.DOI);
+    .text(makeCitation);
 
   // load thumbnails
   thumbnails.attr("src", getThumbnailPath);
   mobileThumbnails.attr("src", getThumbnailPath);
 });
 
+function getSimpleName(paper) {
+  var title = dropLeadingArticle(paper.Title);
+  return title.split(/[^\w]/, 1)[0].toLowerCase()
+         + "-"
+         + paper.Authors.split(/[^\w]/, 1)[0].toLowerCase();
+}
+
 function getThumbnailPath(paper) {
   if (paper.AuthorPDF == "")
     return "images/blank.png";
-  var path = "thumbnails/";
-  var title = dropLeadingArticle(paper.Title);
-  // make filename
-  path += title.split(/[^\w]/, 1)[0].toLowerCase();
-  path += "-";
-  path += paper.Authors.split(/[^\w]/, 1)[0].toLowerCase();
-  path += ".png";
-  return path;
+  return "thumbnails/" + getSimpleName(paper) + ".png";
 }
 
 function dropLeadingArticle (text) {
@@ -155,6 +156,36 @@ d3.selection.prototype.appendLink = function (css, text, href) {
 
   link.append("span")
     .text(text);
+}
+
+
+
+function makeCitation(paper) {
+  var APA = "";
+  var authors = paper.Authors.split(", ");
+  APA = authors[0];
+  if (authors.length == 2)
+    APA += " and " + authors[1];
+  if (authors.length > 2) {
+    for (var a = 1; a < authors.length - 1; a++)
+      APA += ", " + authors[a];
+    APA += ", and " + authors[authors.length - 1];
+  }
+  APA += ". \"" + paper.Title + "\". ";
+  APA += journals[paper.PublicationVenue] + ". ";
+  APA += paper.PublicationYear + ". ";
+  APA += paper.DOI ? "DOI:" + paper.DOI + "." : "";
+
+  var bibtex = "@Article{" + getSimpleName(paper) + ",\n";
+  bibtex += "  author = " + paper.Authors.split(", ").join(" and ") + "\n";
+  bibtex += "  title = " + paper.Title + "\n";
+  bibtex += "  journal = " + journals[paper.PublicationVenue] + "\n";
+  bibtex += "  year = " + paper.PublicationYear + "\n";
+  bibtex += "  DOI = " + paper.DOI + "\n";
+  bibtex += "}";
+  
+
+  return APA + "\n\n" + bibtex;
 }
 
 
