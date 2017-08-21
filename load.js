@@ -1,6 +1,10 @@
 var asdf = require("d3");
 var dataCSV, dataNested;
 var dayNames = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+var dayAbrevs = {"Tuesday morning": "Tu AM", "Tuesday afternoon": "Tu PM", 
+                 "Wednesday morning": "W AM", "Wednesday afternoon": "W PM", 
+                 "Thursday morning": "Th AM", "Thursday afternoon": "Th PM", 
+                 "Friday morning": "F AM", "Friday afternoon": "F PM", }
 var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "hal.inria.fr", "hal.archives-ouvertes.fr", "eprints.whiterose.ac.uk"];
 var linkImages = {"PDF": "file-text", "Material": "materials", "Data": "data", "Explanation": "info"};
 var timeParser = d3.timeParse("%H:%M %p");
@@ -41,12 +45,14 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   days = days.append("div")
     .classed("day", true)
     .classed("row", true)
-    .attr("id", d => d.key)
+    .attr("id", d => d.key.split("|")[1].replace(" ", "_"))
     .append("div")
         .classed(style, true);
   
   days.append("h2")
     .text(d => d.key.split("|")[1]);
+
+  makeDayButtons();
   
   var sessions = days.selectAll(".session")
     .data(d => d.values).enter()
@@ -152,10 +158,25 @@ d3.selection.prototype.appendLink = function (css, text, href) {
 }
 
 
-d3.selectAll('button').on("click", function() {
-  var subset = d3.select(this).node().dataset["subset"];
-  var isPressed = d3.select(this).attr("aria-pressed");
-  console.log(subset);
-  console.log(isPressed);
-  d3.selectAll(subset).style("display", isPressed == "false" ? "block" : "none");
-});
+function makeDayButtons() {
+  d3.select("#dayToggles")
+    .selectAll("button")
+    .data(dataNested).enter()
+    .append("button")
+      .attr("type", "button")
+      .classed("btn active btn-day", true)
+      .attr("data-toggle", "button") 
+      .attr("data-subset", d => "#" + d.key.split("|")[1].replace(" ", "_"))
+      .attr("aria-pressed", "true")
+      .attr("autocomplete", "off")
+      .append("span").text(d => dayAbrevs[d.key.split("|")[1]]);
+  
+  // set up button events handlers
+  d3.selectAll('button').on("click", function() {
+    var subset = d3.select(this).node().dataset["subset"];
+    var isPressed = d3.select(this).attr("aria-pressed");
+    console.log(subset);
+    console.log(isPressed);
+    d3.selectAll(subset).style("display", isPressed == "false" ? "block" : "none");
+  });
+}

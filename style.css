@@ -1,8 +1,9 @@
 .controls { 
     background: #f0f0f0; 
-    padding: 1em; 
+    padding: 6px 0 0 6px; 
+    font-size: 0;
 }
-.controls input { margin-right: 5%; }
+.controls > div { padding-bottom: 6px; }
 
 .session { 
     margin-bottom: 0.25em;
@@ -12,7 +13,7 @@
 .infovis { background-color: #f0f0ff; }
 .vast    { background-color: #f0fff0; }
 .scivis  { background-color: #fff0f0; }
-.other  { background-color: #f0f0f0; }
+.other  { background-color: #fafaea; }
 .session h3::before {
     display: inline-block;
     font-size: 10px;
@@ -26,7 +27,8 @@
 .infovis h3 { color: hsla(240, 100%, 80%, 1); }
 .vast    h3 { color: hsla(120,  50%, 70%, 1); }
 .scivis  h3 { color: hsla(0,   100%, 80%, 1); }
-.other   h3 { color: hsl(60, 00%, 70%); }
+.other   h3 { color: hsla(60, 75%, 50%, 1) }
+/* .other   h3 { color: hsl(60, 00%, 70%); } */
 .infovis h3::before { content: "INFO"; }
 .vast    h3::before { content: "VAST"; }
 .scivis  h3::before { content: "SCI "; margin-right: .1em; }
@@ -38,9 +40,10 @@
     padding-bottom: 0.75em; 
 }
 
-/* .infovis .paper:nth-of-type(2n+1) { background-color: #e0e0ff; }
-.vast    .paper:nth-of-type(2n+1) { background-color: #e0ffe0; }
-.scivis  .paper:nth-of-type(2n+1) { background-color: #ffe0e0; } */
+/*.infovis .paper:nth-of-type(2n) { background-color: #e0e0ff; }
+.vast    .paper:nth-of-type(2n) { background-color: #e0ffe0; }
+.scivis  .paper:nth-of-type(2n) { background-color: #ffe0e0; }
+.other   .paper:nth-of-type(2n) { background-color: #e0e0e0; } */
 .paper .thumbExpander { 
     margin-right: -20px; 
     cursor: pointer;
@@ -163,7 +166,9 @@
 
 .btn { 
     border-radius: 3px; 
-    min-width: 10%; 
+    padding: 3px 6px;
+    margin-right: 6px;
+    min-width: 10%;
 }
 .btn:focus, .btn:active:focus, .btn.active:focus { outline-style: none; }
 .btn.active:not(:active) { box-shadow: none; }
@@ -207,11 +212,20 @@
     border-color: hsla(0, 100%, 80%, 1);
 }
 .btn-other:hover, .btn-other:focus:hover {
+    color: hsla(60, 75%, 40%, 1);
+    background-color: hsla(60, 75%, 50%, 1);
+}
+.btn-other, .btn-other:focus {
+    color: hsla(60, 75%, 50%, 1);
+    background-color: hsla(60, 75%, 97%, 1);
+    border-color: hsla(60, 75%, 50%, 1);
+}
+.btn-day:hover, .btn-day:focus:hover {
     color: hsla(0, 0%, 40%, 1);
     background-color: hsla(0, 0%, 70%, 1);
 }
-.btn-other, .btn-other:focus {
+.btn-day, .btn-day:focus {
     color: hsla(0, 0%, 60%, 1);
-    background-color: hsla(240, 0%, 97%, 1);
+    background-color: hsla(240, 0%, 99%, 1);
     border-color: hsla(0, 0%, 70%, 1);
 }
