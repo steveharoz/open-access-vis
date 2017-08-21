@@ -85,6 +85,8 @@
     opacity: 0.5;
     visibility: hidden;
 }
+.paper .isExpanded .expander { transform: rotate(180deg); }
+
 .paper p {
     margin-bottom: 0.1em;
     color: hsla(0,0%,0%,0.75);
@@ -108,7 +110,6 @@
     }
 }
 .paper .time { font-family: Consolas, monaco, monospace; }
-.paper .expandInfo { display: none; }
 .paper .expandInfo pre {
     background-color: hsla(0,0%,0%,0.05);
     border: 1px solid hsla(0,0%,0%,0.15);

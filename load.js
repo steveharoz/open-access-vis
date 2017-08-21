@@ -65,7 +65,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   var papers = sessions.selectAll(".paper")
     .data(s => s.values).enter()
     .append("div")
-        .attr("id", d => getSimpleName(d, sep = "_"))
+        .attr("id", getSimpleName)
         .attr("class", "paper row");
   
   var left = papers.append("div")
@@ -78,7 +78,13 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
     .classed("thumb", true)
     .attr("src", "images/blank.png");
   expander.append("img").classed("expander", true).attr("src", "images/chevron-circle-down.svg");
-  left.on("click", (d,i) => console.log(d));
+
+  // expand event handler
+  left.on("click", (d,i) => {
+    left.classed("isExpanded", !left.classed("isExpanded"));
+    var id = getSimpleName(d) + "_expandInfo";
+    $('#' + id).collapse('toggle');
+  });
 
   var mid = papers.append("div")
     .classed("col-sm-8 col-xs-12", true);
@@ -101,8 +107,8 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   right.appendLink("projectPage", "Explanation", d => d.ExplanationPage);
 
   var expandInfo = papers.append("div")
-    .attr("id", d =>  getSimpleName(d, sep = "_") + "_expandInfo")
-    .classed("col-sm-8 col-xs-12 expandInfo", true);
+    .attr("id", d => getSimpleName(d) + "_expandInfo")
+    .classed("col-sm-8 col-xs-12 expandInfo collapse", true);
   expandInfo.append("p")
     .classed("abstract", true)
     .html(d => d.Abstract);
@@ -111,11 +117,11 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
     .text(makeCitation);
 
   // load thumbnails
-  //thumbnails.attr("src", getThumbnailPath);
-  //mobileThumbnails.attr("src", getThumbnailPath);
+  thumbnails.attr("src", getThumbnailPath);
+  mobileThumbnails.attr("src", getThumbnailPath);
 });
 
-function getSimpleName(paper, sep = "-") {
+function getSimpleName(paper, sep = "_") {
   var title = dropLeadingArticle(paper.Title);
   return title.split(/[^\w]/, 1)[0].toLowerCase()
          + sep
@@ -125,7 +131,7 @@ function getSimpleName(paper, sep = "-") {
 function getThumbnailPath(paper) {
   if (paper.AuthorPDF == "")
     return "images/blank.png";
-  return "thumbnails/" + getSimpleName(paper) + ".png";
+  return "thumbnails/" + getSimpleName(paper, "-") + ".png";
 }
 
 function dropLeadingArticle (text) {
