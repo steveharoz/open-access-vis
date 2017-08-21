@@ -219,6 +219,8 @@ function makeCitation(paper) {
 function expandEventHandler(left, paper) {
   if (untouched)
     abstracts.html(d => d.Abstract);
+  if (paper.AuthorPDF == "") 
+    return;
   left.classed("isExpanded", !left.classed("isExpanded"));
   var id = getSimpleName(paper) + "_expandInfo";
   $('#' + id).collapse('toggle');

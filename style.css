@@ -218,20 +218,20 @@
     border-color: hsla(0, 100%, 80%, 1);
 }
 .btn-other:hover, .btn-other:focus:hover {
-    color: hsla(60, 70%, 35%, 1);
-    background-color: hsla(60, 70%, 45%, 1);
+    color: hsla(60, 75%, 35%, 1);
+    background-color: hsla(60, 75%, 45%, 1);
 }
 .btn-other, .btn-other:focus {
-    color: hsla(60, 70%, 45%, 1);
+    color: hsla(60, 75%, 45%, 1);
     background-color: #fafaea;
-    border-color: hsla(60, 70%, 45%, 1);
+    border-color: hsla(60, 75%, 45%, 1);
 }
 .btn-day:hover, .btn-day:focus:hover {
-    color: hsla(0, 0%, 40%, 1);
+    color: hsla(0, 0%, 30%, 1);
     background-color: hsla(0, 0%, 70%, 1);
 }
 .btn-day, .btn-day:focus {
-    color: hsla(0, 0%, 60%, 1);
+    color: hsla(0, 0%, 50%, 1);
     background-color: hsla(240, 0%, 99%, 1);
     border-color: hsla(0, 0%, 70%, 1);
 }
@@ -242,6 +242,7 @@
 .paper.closedAccess .time { display: none; }
 .paper.closedAccess .title, 
 .paper.closedAccess .authors,
-.paper.closedAccess .closedAccessMessage { opacity: 0.5; }
+.paper.closedAccess .closedAccessMessage,
+.paper.closedAccess .thumb { opacity: 0.5; }
 .closedAccessMessage { display: none; }
 .paper.closedAccess .closedAccessMessage { display: block; font-style: italic; }
