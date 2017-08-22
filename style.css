@@ -1,9 +1,25 @@
+body {
+    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+    padding-bottom: 4em;
+}
+.mediaLinks { padding-top: 25px; }
+.mediaLinks a { float: right; margin-left: .5em; }
+.mediaLinks svg {
+    fill: black;
+    text-align: right;
+    width: 26px;
+    height: 26px;
+}
+.mediaLinks svg:hover {
+    fill: #2A6A9A;
+}
 .controls { 
     background: #f0f0f0; 
     padding: 6px 0 0 6px; 
     font-size: 0;
 }
 .controls > div { padding-bottom: 6px; }
+
 
 .session { 
     margin-bottom: 0.25em;

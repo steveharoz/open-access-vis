@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>About - Open Access VIS</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- my CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- more CSS -->
+    <style>
+        img {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: .35em;
+            width: 1.5em;
+            height: 1.5em;
+        }
+        .notAvailable { opacity: 0.1; }
+        .symbol { margin-bottom: 2em; }
+        .symbol p { vertical-align: middle; }
+    </style>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <img src="images/blank.png" style="display:none">
+    <div class="container theme-showcase" role="main">
+        <div class="row">
+          <div class="col-md-12 col-lg-10 col-lg-offset-1">
+            <h1>Open Access VIS</h1>
+            <p>A collection of open access materials presented at the VIS 2017 conference</p>
+
+            <h3>The goals of this site</h3>
+            <ol>
+                <li>Collect openly accessible papers, data, and other materials from VIS in one place.</li>
+                <li>Encourage authors to post papers, data, and materials.</li>
+                <li>Encourage posting on reliable open access repositories.</li>
+                <li>Get an overview of how many VIS papers are inaccessible outside of a pay wall.</li>
+            </ol>
+            
+            <h3>Badges</h3>
+            <div class="symbol">
+                <p><img src="images/file-text.svg">This paper is available on a reliable open access repository.</p>
+                <p><img src="images/file-text-o.svg">This paper is available from an author or institution website.</p>
+                <p><img src="images/file-text-o.svg" class="notAvailable">This paper may not be legitimately available outside of a paywall.</p>
+            </div>
+            <div class="symbol">
+                <p><img src="images/materials.svg">The materials or source code needed to reproduce this work are available on a reliable open access repository. <a href="https://osf.io/gc2g8/">Full criteria</a>.</p>
+                <p><img src="images/materials-o.svg">The materials or source code needed to reproduce this work are available from some other source.</p>
+                <p><img src="images/materials-o.svg" class="notAvailable">The materials or source code needed to reproduce this work may not be available.</p>
+            </div>
+            <div class="symbol">
+                <p><img src="images/data.svg">The results or data are available on a reliable open access repository. <a href="https://osf.io/g6u5k/">Full criteria</a>.</p>
+                <p><img src="images/data-o.svg">The results or data are available from some other source.</p>
+                <p><img src="images/data-o.svg" class="notAvailable">The results or data may not be available.</p>
+            </div>
+            <div class="symbol">
+                <p><img src="images/info.svg">A simple explanation or interactive demonstration is available on a reliable open access repository.</p>
+                <p><img src="images/info-o.svg">A simple explanation or interactive demonstration is available.</p>
+                <p><img src="images/info-o.svg" class="notAvailable">A simple explanation or interactive demonstration may not be available.</p>
+            </div>
+
+            <h3>How do I make my work open access?</h3>
+            <p>I strongly recommend putting it in an <a href="https://osf.io">Open Science Foundation</a> repository.</p>
+            <p>Sign up. Create a new project. And upload your paper, data, and materials. It takes under 5 minutes.</p>
+            <p>You can also connect your OSF project to a GitHub repository to avoid keeping track of multiple repositories.</p>
+            
+            <h3>I see missing info, incorrect info, or a bug. How can I fix it?</h3>
+            <p>Help filling in missing or incorrect info is greatly appreciated. The data and code are on <a href="https://github.com/steveharoz/open-access-vis">GitHub</a>.</p>
+            <p>Thumbails are kept separately. Information for adding or improving thumbails is also on <a href="https://github.com/steveharoz/open-access-vis">GitHub</a>.</p>
+
+            <h3>Acknowledgements</h3>
+            <p>This site was built with <a href="http://getbootstrap.com">Boostrap</a>, <a href="http://d3js.org">D3</a>, and a fuckton of <a href="http://stackoverflow.com">StackOverflow</a> searches.</p>
+            <p>Some icons are from <a href="https://github.com/encharm/Font-Awesome-SVG-PNG">Font-Awesome-SVG-PNG</a> (<a href="http://fontawesome.io">Font Awesome</a> by Dave Gandy).</p>
+            <p>Open access materials and open access data symbols by <a href="https://cos.io/our-services/open-science-badges/">Center for Open Science</a>. Note that the "partial credit" versions were created by me.</p>
+            <p>Special thanks to the <a href="http://walshwhiskey.com/">Walsh Whiskey Distillery</a> for making great booze.</p>
+          </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- d3 -->
+    <script src="d3.js"></script>
+    <!-- code -->
+    <script> function require(a) {} </script>
+    <!-- 
+        d3.nest()
+            .key(d => d.ReviewVenue)
+            .rollup(rv => rv.filter(p => p.AuthorPDF!="").length / rv.length )
+            .entries(dataCSV);
+     -->
+  </body>
+</html>
