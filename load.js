@@ -19,7 +19,13 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
   if (error) throw error;
   dataCSV = data;
   
-  dataCSV = dataCSV.map(d => { d.PM = timeParser(d.ConferenceTimeStart).getHours() > 12; return d; });
+  // make some extra properties
+  dataCSV = dataCSV.map(d => { 
+    d.PM = timeParser(d.ConferenceTimeStart).getHours() > 12; 
+    d.closedAccess = d.AuthorPDF == ""; 
+    d.simpleName = getSimpleName(d);
+    return d; 
+  });
   console.log(dataCSV);
 
   // nest the data
@@ -76,9 +82,9 @@ function buildPage() {
   var papers = sessions.selectAll(".paper")
     .data(s => s.values).enter()
     .append("div")
-        .attr("id", getSimpleName)
+        .attr("id", d => d.simpleName)
         .attr("class", "paper row")
-        .classed("closedAccess", d => d.AuthorPDF == "");
+        .classed("closedAccess", d => d.closedAccess);
   
   ///// thumbnail /////
   var left = papers.append("div")
@@ -123,7 +129,7 @@ function buildPage() {
 
   ///// expander content  /////
   var expandInfo = papers.append("div")
-    .attr("id", d => getSimpleName(d) + "_expandInfo")
+    .attr("id", d => d.simpleName + "_expandInfo")
     .classed("col-sm-8 col-xs-12 expandInfo collapse", true);
   abstracts = expandInfo.append("p")
     .classed("abstract", true);
@@ -154,9 +160,9 @@ function dropLeadingArticle (text) {
 
 // get thumbnail image
 function getThumbnailPath(paper) {
-  if (paper.AuthorPDF == "")
+  if (paper.closedAccess)
     return "images/Closed_Access_Research.svg";
-  return "thumbnails/" + getSimpleName(paper, "-") + ".png";
+  return "thumbnails/" + paper.simpleName + ".png";
 }
 
 // is the pdf on a true open access repository
@@ -204,7 +210,7 @@ function makeCitation(paper) {
   APA += paper.PublicationYear + ". ";
   APA += paper.DOI ? "DOI:" + paper.DOI + "." : "";
 
-  var bibtex = "@Article{" + getSimpleName(paper) + ",\n";
+  var bibtex = "@Article{" + paper.simpleName + ",\n";
   bibtex += "  author = " + paper.Authors.split(", ").join(" and ") + "\n";
   bibtex += "  title = " + paper.Title + "\n";
   bibtex += "  journal = " + journals[paper.PublicationVenue] + "\n";
@@ -219,11 +225,11 @@ function makeCitation(paper) {
 function expandEventHandler(left, paper) {
   if (untouched)
     abstracts.html(d => d.Abstract);
-  if (paper.AuthorPDF == "") 
+  if (paper.closedAccess) 
     return;
-  left.classed("isExpanded", !left.classed("isExpanded"));
-  var id = getSimpleName(paper) + "_expandInfo";
-  $('#' + id).collapse('toggle');
+  var id = '#' + paper.simpleName;
+  d3.select(id).classed("isExpanded", !d3.select(id).classed("isExpanded"));
+  $(id + "_expandInfo").collapse('toggle');
 }
 
 // make button to show/hide each day

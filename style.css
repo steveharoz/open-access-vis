@@ -84,7 +84,7 @@
     opacity: 0.75;
     visibility: hidden;
 }
-.paper .isExpanded .expander { transform: rotate(180deg); }
+.paper.isExpanded .expander { transform: rotate(180deg); }
 
 .paper p {
     margin-bottom: 0.1em;
@@ -92,7 +92,7 @@
 }
 .paper .title {
     font-weight: bold;
-    margin-top: -0.25em;
+    margin-top: -0.2em;
 }
 @media (max-width: 768px) { 
     .paper .authors {
@@ -118,7 +118,7 @@
     word-break: normal;
 }
 
-.paper .links { margin-top: -.25em; padding-right: 0; margin-bottom: -2em; }
+.paper .links { margin-top: -.2em; padding-right: 0; margin-bottom: -2em; }
 .paper .links .thumb { display: none; }
 .paper .link[href=""] { 
     pointer-events: none;
@@ -173,9 +173,10 @@
     padding: 3px 6px;
     margin-right: 6px;
     min-width: 10%;
-    box-shadow: 0 1px 3px rgba(0,0,0,.125);
+    box-shadow: -1px 1px 3px rgba(0,0,0,.125);
     border-style: none;
 }
+.btn.active { box-shadow: inset 0 1px 3px rgba(0,0,0,.125); }
 .btn:focus, .btn:active:focus, .btn.active:focus { outline-style: none; }
 /* .btn.active:not(:active) { box-shadow: none; } */
 .btn[aria-pressed="false"] span:after { 
