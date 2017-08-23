@@ -119,7 +119,6 @@ function buildPage() {
   ///// links /////
   var right = papers.append("div")
     .classed("col-sm-2 col-xs-12 links", true);
-  //var mobileThumbnails = right.append("img").classed("thumb", true);
   var mobileExpander = right.append("div").classed("expanderContainer", true)
     .append("img")
       .classed("expander", true)
@@ -134,7 +133,8 @@ function buildPage() {
   ///// expander content  /////
   var expandInfo = papers.append("div")
     .attr("id", d => d.simpleName + "_expandInfo")
-    .classed("col-sm-8 col-sm-offset-2 expandInfo collapse", true);
+    .classed("col-xs-12 col-sm-8 col-sm-offset-2 expandInfo collapse", true);
+  var mobileThumbnails = expandInfo.append("img").classed("mobileThumb", true);
   abstracts = expandInfo.append("p")
     .classed("abstract", true);
   videos = expandInfo.append("div")
@@ -145,7 +145,7 @@ function buildPage() {
 
   // load thumbnails last
   thumbnails.attr("src", getThumbnailPath);
-  //mobileThumbnails.attr("src", getThumbnailPath);
+  mobileThumbnails.attr("src", getThumbnailPath);
 } // end buildPage()
 
 

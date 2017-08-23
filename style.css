@@ -114,6 +114,7 @@ h1 img { height: 1.25em; margin-top: -.25em; }
 }
 .paper .time { font-family: Consolas, monaco, monospace; }
 .paper .expandInfo { margin-left: calc(16.666666% - 20px); }
+.paper .expandInfo .mobileThumb { display: none; }
 .paper .expandInfo .abstract { margin-top: .5em; }
 .paper .expandInfo .videoWrapper.empty { display: none; }
 .paper .expandInfo .videoWrapper {
@@ -247,7 +248,10 @@ h1 img { height: 1.25em; margin-top: -.25em; }
     h2 { font-size: 26px; }
     .header { padding-right: 0; }
 
+
+    .paper { margin-bottom: 0.5em; }
     
+
     .paper .authors {
         white-space: nowrap;
         overflow: hidden; 
@@ -261,10 +265,8 @@ h1 img { height: 1.25em; margin-top: -.25em; }
         text-overflow: clip;
     }
 
-    
-    .paper { margin-bottom: 0.5em; }
+
     .paper .links { 
-        width: 100%;
         margin-top: 0; 
         margin-bottom: 1em; 
         padding-right: 1em;
@@ -289,7 +291,16 @@ h1 img { height: 1.25em; margin-top: -.25em; }
         height: 2em;
         background-size: 2em;
     }
-    .paper .link span { 
-        display: none;
+    .paper .link span { display: none; }
+
+
+    .paper .expandInfo { margin-left: 0; margin-bottom: 2em; }
+    .paper .expandInfo .mobileThumb { 
+        width: 100%; 
+        display: block;
+        margin: 1em .5em 1em 0;
+        border: 1px solid rgba(0,0,0,.125);
     }
+    .paper .expandInfo .abstract { margin-left: .25em; }
+    .paper .expandInfo pre { display: none; }
 }
