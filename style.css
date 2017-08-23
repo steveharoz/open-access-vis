@@ -60,7 +60,7 @@ body {
 .other   .paper:nth-of-type(2n) { background-color: #e0e0e0; } */
 .paper .thumbExpander { 
     margin-right: -20px; 
-    margin-bottom: -2em; /* to let left margin of expandInfo overlap with this */
+    margin-bottom: -3em; /* to let left margin of expandInfo overlap with this */
     cursor: pointer;
     clear: both;
 }
@@ -126,6 +126,7 @@ body {
     }
 }
 .paper .time { font-family: Consolas, monaco, monospace; }
+.paper .expandInfo { margin-left: calc(16.666666% - 20px); }
 .paper .expandInfo .abstract { margin-top: .5em; }
 .paper .expandInfo pre {
     background-color: hsla(0,0%,0%,0.05);
