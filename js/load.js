@@ -257,7 +257,11 @@ function convertName2Reference(name) {
     name = name.replace(particle, " ");
   var tokens = name.split(" ");
   var lastName = tokens.pop();
-  var firstInitials = tokens.map(t => t.trim()[0] + ".").join(" ");
+  var firstInitials = tokens.map(t => {
+    if (!t.includes("-"))
+      return t.trim()[0] + ".";
+    return t.split("-").map(t => t[0]).join(".-") + ".";
+  }).join(" ");
   return firstInitials + particle.trimRight() + " " + lastName;
 }
 
