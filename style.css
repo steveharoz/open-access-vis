@@ -247,6 +247,8 @@ h1 img { height: 1.25em; margin-top: -.25em; }
     h1 { font-size: 28px; }
     h2 { font-size: 26px; }
     .header { padding-right: 0; }
+    .btn { width: calc(25% - 4px); margin-bottom: 6px; }
+    .controls > div { padding-bottom: 0; }
 
 
     .paper { margin-bottom: 0.5em; }
