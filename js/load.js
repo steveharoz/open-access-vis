@@ -9,7 +9,7 @@ var dayAbrevs = {"Tuesday morning": "Tu AM", "Tuesday afternoon": "Tu PM",
 var journals = {"TVCG": "Transactions on Visualization and Computer Graphics", "C&GA": "Computer Graphics and Applications", "VAST": "Proceedings of IEEE VAST 2017"};
 var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "hal.inria.fr", "hal.archives-ouvertes.fr", "eprints.whiterose.ac.uk"];
 var linkImages = {"PDF": "file-text", "Material": "materials", "Data": "data", "Explanation": "info"};
-var timeParser = d3.timeParse("%H:%M %p");
+var timeParser = d3.timeParse("%I:%M %p");
 var style = "col-md-12 col-lg-10 col-lg-offset-1";
 var untouched = true;
 
@@ -111,7 +111,7 @@ function buildPage() {
         .text(d => d.Authors);
   mid.append("p")
         .classed("time", true)
-        .text(d => d.ConferenceTimeStart + " - " + d.ConferenceTimeEnd + " " + d.ConferenceDay);
+        .text(d => formatTimeRange(d.ConferenceTimeStart, d.ConferenceTimeEnd) + " " + d.ConferenceDay);
   mid.append("p")
         .classed("closedAccessMessage", true)
         .html("This paper does not appear to be available. Please encourage the authors to post their work.");
@@ -178,6 +178,23 @@ function isOpenAccessDomain(href) {
       return true;
   }
   return false;
+}
+
+// time to string converter
+var timeFormatterShort = d3.timeFormat("%-H:%M");
+var timeFormatterLong = d3.timeFormat("%-H:%M %p");
+function timeFormatter(time, AMPM) {
+  return AMPM ? timeFormatterLong(time) : timeFormatterShort(time);
+}
+
+// time range to string
+function formatTimeRange(start, end) {
+  start = timeParser(start);
+  end = timeParser(end);
+  // if both AM or both PM
+  if ((start.getHours() >= 12)  ==  (end.getHours() >= 12))
+    return timeFormatterShort(start) + " - " + timeFormatterLong(end);
+  return timeFormatterLong(start) + " - " + timeFormatterLong(end);
 }
 
 // add a link and icon
