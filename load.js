@@ -26,7 +26,6 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
     d.simpleName = getSimpleName(d);
     return d; 
   });
-  console.log(dataCSV);
 
   // nest the data
   dataNested = d3.nest()
@@ -37,7 +36,6 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
     .key(d => d.ConferenceTrack + "|" + d.ConferenceSession)
     .sortKeys((a,b) => a.localeCompare(b))
     .entries(dataCSV);
-  console.log(dataNested);
   dataNested = dataNested.map(d => {
       // sort papers within each session
       d.values = d.values.map(s => {
@@ -289,8 +287,6 @@ function makeDayButtons() {
   d3.selectAll('button').on("click", function() {
     var subset = d3.select(this).node().dataset["subset"];
     var isPressed = d3.select(this).attr("aria-pressed");
-    console.log(subset);
-    console.log(isPressed);
     d3.selectAll(subset).style("display", isPressed == "false" ? "block" : "none");
   });
 }
@@ -302,4 +298,13 @@ function checkImageSizes() {
     if (a.naturalHeight > a.naturalWidth * .75)
     console.log(a.src);
   });
+}
+
+// just for dev
+function checkCompleteness() { 
+  return d3.nest()
+    .key(d => d.ReviewVenue)
+    .rollup(rv => rv.filter(p => p.AuthorPDF!="").length / rv.length )
+    .entries(dataCSV);
+    console.log(completeness);
 }

@@ -12,9 +12,10 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- my CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- more CSS -->
     <style>
+        h3 { margin-top: 1.5em; }
         img {
             display: inline-block;
             vertical-align: middle;
@@ -40,13 +41,13 @@
         <div class="row">
           <div class="col-md-12 col-lg-10 col-lg-offset-1">
             <h1>Open Access VIS</h1>
-            <p>A collection of open access materials presented at the VIS 2017 conference</p>
+            <p>A <a href="../">collection of open access materials</a> presented at the VIS 2017 conference.</p>
 
-            <h3>The goals of this site</h3>
+            <h3>Goals of this site</h3>
             <ol>
                 <li>Collect openly accessible papers, data, and other materials from VIS in one place.</li>
                 <li>Encourage authors to post papers, data, and materials.</li>
-                <li>Encourage posting on reliable open access repositories.</li>
+                <li>Encourage posting on reliable open access repositories to avoid "link rot".</li>
                 <li>Get an overview of how many VIS papers are inaccessible outside of a pay wall.</li>
             </ol>
             
@@ -67,25 +68,25 @@
                 <p><img src="images/data-o.svg" class="notAvailable">The results or data may not be available.</p>
             </div>
             <div class="symbol">
-                <p><img src="images/info.svg">A simple explanation or interactive demonstration is available on a reliable open access repository.</p>
+                <p><img src="images/info.svg">A simple explanation or interactive demonstration is available on a reliable open access repository. <em>(Not sure if this is realistic)</em></p>
                 <p><img src="images/info-o.svg">A simple explanation or interactive demonstration is available.</p>
                 <p><img src="images/info-o.svg" class="notAvailable">A simple explanation or interactive demonstration may not be available.</p>
             </div>
 
             <h3>How do I make my work open access?</h3>
-            <p>I strongly recommend putting it in an <a href="https://osf.io">Open Science Foundation</a> repository.</p>
+            <p>I suggesting using the <a href="https://osf.io">Open Science Foundation (OSF)</a> to post your work.</p>
             <p>Sign up. Create a new project. And upload your paper, data, and materials. It takes under 5 minutes.</p>
             <p>You can also connect your OSF project to a GitHub repository to avoid keeping track of multiple repositories.</p>
             
             <h3>I see missing info, incorrect info, or a bug. How can I fix it?</h3>
             <p>Help filling in missing or incorrect info is greatly appreciated. The data and code are on <a href="https://github.com/steveharoz/open-access-vis">GitHub</a>.</p>
-            <p>Thumbails are kept separately. Information for adding or improving thumbails is also on <a href="https://github.com/steveharoz/open-access-vis">GitHub</a>.</p>
+            <p>Thumbails are kept separately for now. Information for adding or improving thumbails is also on <a href="https://github.com/steveharoz/open-access-vis">GitHub</a>.</p>
 
             <h3>Acknowledgements</h3>
             <p>This site was built with <a href="http://getbootstrap.com">Boostrap</a>, <a href="http://d3js.org">D3</a>, and a fuckton of <a href="http://stackoverflow.com">StackOverflow</a> searches.</p>
             <p>Some icons are from <a href="https://github.com/encharm/Font-Awesome-SVG-PNG">Font-Awesome-SVG-PNG</a> (<a href="http://fontawesome.io">Font Awesome</a> by Dave Gandy).</p>
             <p>Open access materials and open access data symbols by <a href="https://cos.io/our-services/open-science-badges/">Center for Open Science</a>. Note that the "partial credit" versions were created by me.</p>
-            <p>Special thanks to the <a href="http://walshwhiskey.com/">Walsh Whiskey Distillery</a> for making great booze.</p>
+            <p>Special thanks to the <a href="http://walshwhiskey.com/">Walsh Whiskey Distillery</a> whose booze made all of this possible.</p>
           </div>
         </div>
     </div>
@@ -98,11 +99,5 @@
     <script src="d3.js"></script>
     <!-- code -->
     <script> function require(a) {} </script>
-    <!-- 
-        d3.nest()
-            .key(d => d.ReviewVenue)
-            .rollup(rv => rv.filter(p => p.AuthorPDF!="").length / rv.length )
-            .entries(dataCSV);
-     -->
   </body>
 </html>
