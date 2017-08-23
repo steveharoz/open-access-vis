@@ -208,6 +208,10 @@ function makeVideoFrame(video) {
     var videoID = video.split(" ")[1];
     return `<iframe src="https://player.vimeo.com/video/${videoID}?byline=0" width="1080" height="608" frameborder="0" allowfullscreen></iframe>`;
   }
+  if (video.startsWith("video ")) {
+    var videoID = video.split(" ")[1];
+    return `<video width="100%" controls=""><source src="${videoID}" type="video/mp4"></video>`;
+  }
   return video;
 }
 
