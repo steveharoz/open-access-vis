@@ -138,7 +138,7 @@ h1 img { height: 1.25em; margin-top: -.25em; }
 }
 
 .paper .links { margin-top: -.2em; padding-right: 0; margin-bottom: -2em; }
-.paper .links .thumb { display: none; }
+.paper .links .expander { display: none; }
 .paper .link[href=""] { 
     pointer-events: none;
     cursor: default;
@@ -147,7 +147,6 @@ h1 img { height: 1.25em; margin-top: -.25em; }
 .paper .link {
     clear: both;
     display: block;
-    min-width: 15%;
     opacity: 0.75;
 }
 .paper .link img {
@@ -158,7 +157,7 @@ h1 img { height: 1.25em; margin-top: -.25em; }
     height: 1em;
 }
 .paper .link span { 
-    vertical-align: middle; 
+    vertical-align: text-top; 
     display: inline-block; 
 }
 
@@ -264,19 +263,26 @@ h1 img { height: 1.25em; margin-top: -.25em; }
 
     
     .paper { margin-bottom: 0.5em; }
-    .paper .links { margin-top: 0; margin-bottom: 1em; }
-    .paper .links .thumb { 
+    .paper .links { 
+        width: 100%;
+        margin-top: 0; 
+        margin-bottom: 1em; 
+        padding-right: 1em;
+    }
+    .paper .links .expanderContainer {
         display: inline-block;
-        width: 2.667em;
-        max-width: 2.667em;
+        width: 32%;
+        text-align: left;
+    }
+    .paper .links .expander {
+        display: inline-block;
         height: 2em;
-        margin-right: 1.5em;
-        border: 2px rgba(0,0,0,.75) solid;
-        border-radius: 2px;
+        opacity: 0.75;
     }
     .paper .link { 
         display: inline-block; 
-        margin-right: 1em;
+        width: 17%;
+        text-align: right;
     }
     .paper .link img {
         width: 2em;

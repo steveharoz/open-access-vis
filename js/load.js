@@ -119,7 +119,12 @@ function buildPage() {
   ///// links /////
   var right = papers.append("div")
     .classed("col-sm-2 col-xs-12 links", true);
-  var mobileThumbnails = right.append("img").classed("thumb", true);
+  //var mobileThumbnails = right.append("img").classed("thumb", true);
+  var mobileExpander = right.append("div").classed("expanderContainer", true)
+    .append("img")
+      .classed("expander", true)
+      .attr("src", "images/chevron-circle-down.svg");
+    mobileExpander.on("click", (d,i) => expandEventHandler(left, d));
   right.appendLink("PDF", "PDF", d => d.AuthorPDF);
   right.appendLink("sourceMaterial", "Material", d => d.SourceMaterials);
   right.appendLink("data", "Data", d => d.Data);
@@ -140,7 +145,7 @@ function buildPage() {
 
   // load thumbnails last
   thumbnails.attr("src", getThumbnailPath);
-  mobileThumbnails.attr("src", getThumbnailPath);
+  //mobileThumbnails.attr("src", getThumbnailPath);
 } // end buildPage()
 
 
