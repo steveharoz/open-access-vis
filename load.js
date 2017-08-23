@@ -35,6 +35,7 @@ d3.csv("openaccessvis.csv", d => d, function(error, data) {
     .sortKeys((a,b) => a.split("|")[0] - b.split("|")[0])
     // session
     .key(d => d.ConferenceTrack + "|" + d.ConferenceSession)
+    .sortKeys((a,b) => a.localeCompare(b))
     .entries(dataCSV);
   console.log(dataNested);
   dataNested = dataNested.map(d => {
