@@ -12,7 +12,7 @@ Please create an [issue](https://github.com/steveharoz/open-access-vis/issues) f
 ## URLs:
 
 * URLs on an open access repository are prioritized for longevity.
-* White-listed open access repositories are in the `OADomains` variable in [load.js](load.js). Let me know if others should be added
+* White-listed open access repositories are in the `OADomains` variable in [js/load.js](js/load.js#L10). Let me know if others should be added.
 
 ## Adding or modifying the data:
 
