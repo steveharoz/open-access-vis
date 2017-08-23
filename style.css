@@ -128,6 +128,20 @@ body {
 .paper .time { font-family: Consolas, monaco, monospace; }
 .paper .expandInfo { margin-left: calc(16.666666% - 20px); }
 .paper .expandInfo .abstract { margin-top: .5em; }
+.paper .expandInfo .videoWrapper.empty { display: none; }
+.paper .expandInfo .videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	margin-top: 1em;
+	height: 0;
+}
+.paper .expandInfo .videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 .paper .expandInfo pre {
     background-color: hsla(0,0%,0%,0.05);
     border: 1px solid hsla(0,0%,0%,0.15);

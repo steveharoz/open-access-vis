@@ -133,6 +133,8 @@ function buildPage() {
     .classed("col-sm-8 col-sm-offset-2 expandInfo collapse", true);
   abstracts = expandInfo.append("p")
     .classed("abstract", true);
+  videos = expandInfo.append("div")
+    .classed("videoWrapper empty", true);
   expandInfo.append("pre")
     .classed("citation", true)
     .text(makeCitation);
@@ -193,6 +195,21 @@ d3.selection.prototype.appendLink = function (css, text, href) {
     .text(text);
 }
 
+// 
+function makeVideoFrame(video) {
+  if (video == "")
+    return "";
+  if (video.startsWith("youtube ")) {
+    var videoID = video.split(" ")[1];
+    return `<iframe src="https://www.youtube-nocookie.com/embed/${videoID}?rel=0&amp;showinfo=0" width="1080" height="608" frameborder="0" allowfullscreen></iframe>`;
+  }
+  if (video.startsWith("vimeo ")) {
+    var videoID = video.split(" ")[1];
+    return `<iframe src="https://player.vimeo.com/video/${videoID}?byline=0" width="1080" height="608" frameborder="0" allowfullscreen></iframe>`;
+  }
+  return video;
+}
+
 // make text that can be copied for a citation
 function makeCitation(paper) {
   var IEEE = "";
@@ -219,7 +236,7 @@ function makeCitation(paper) {
   bibtex += "  DOI = " + paper.DOI + "\n";
   bibtex += "}";
 
-  return IEEE + "\n" + bibtex;
+  return IEEE + "\n\n" + bibtex;
 }
 
 // make a reference-style initial name
@@ -243,6 +260,8 @@ function expandEventHandler(left, paper) {
   if (paper.closedAccess) 
     return;
   var id = '#' + paper.simpleName;
+  if (paper.Video != "" && d3.select(id + " .videoWrapper").html() == "")
+    d3.select(id + " .videoWrapper").classed("empty", false).html(makeVideoFrame(paper.Video));
   d3.select(id).classed("isExpanded", !d3.select(id).classed("isExpanded"));
   $(id + "_expandInfo").collapse('toggle');
 }
