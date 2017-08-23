@@ -195,21 +195,21 @@ d3.selection.prototype.appendLink = function (css, text, href) {
 
 // make text that can be copied for a citation
 function makeCitation(paper) {
-  var APA = "";
+  var IEEE = "";
   var authors = paper.Authors.split(", ");
   authors = authors.map(convertName2Reference);
-  APA = authors[0];
+  IEEE = authors[0];
   if (authors.length == 2)
-    APA += " and " + authors[1];
+    IEEE += " and " + authors[1];
   if (authors.length > 2) {
     for (var a = 1; a < authors.length - 1; a++)
-      APA += ", " + authors[a];
-    APA += ", and " + authors[authors.length - 1];
+      IEEE += ", " + authors[a];
+    IEEE += ", and " + authors[authors.length - 1];
   }
-  APA += ". \"" + paper.Title + "\". ";
-  APA += journals[paper.PublicationVenue] + ". ";
-  APA += paper.PublicationYear + ". ";
-  APA += paper.DOI ? "DOI:" + paper.DOI + "." : "";
+  IEEE += ". \"" + paper.Title + "\". ";
+  IEEE += journals[paper.PublicationVenue] + ". ";
+  IEEE += paper.PublicationYear + ". ";
+  IEEE += paper.DOI ? "DOI:" + paper.DOI + "." : "";
 
   var bibtex = "@Article{" + paper.simpleName + ",\n";
   bibtex += "  author = " + paper.Authors.split(", ").join(" and ") + "\n";
@@ -219,7 +219,7 @@ function makeCitation(paper) {
   bibtex += "  DOI = " + paper.DOI + "\n";
   bibtex += "}";
 
-  return APA + "\n\n" + bibtex;
+  return IEEE + "\n" + bibtex;
 }
 
 // make a reference-style initial name
