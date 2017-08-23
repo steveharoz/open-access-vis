@@ -6,7 +6,7 @@ var dayAbrevs = {"Tuesday morning": "Tu AM", "Tuesday afternoon": "Tu PM",
                  "Wednesday morning": "W AM", "Wednesday afternoon": "W PM", 
                  "Thursday morning": "Th AM", "Thursday afternoon": "Th PM", 
                  "Friday morning": "F AM", "Friday afternoon": "F PM"};
-var journals = {"TVCG": "Transactions on Visualization and Computer Graphics", "C&GA": "Computer Graphics and Applications", "VAST": "Proceedings of IEEE VAST 2016"};
+var journals = {"TVCG": "Transactions on Visualization and Computer Graphics", "C&GA": "Computer Graphics and Applications", "VAST": "Proceedings of IEEE VAST 2017"};
 var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "hal.inria.fr", "hal.archives-ouvertes.fr", "eprints.whiterose.ac.uk"];
 var linkImages = {"PDF": "file-text", "Material": "materials", "Data": "data", "Explanation": "info"};
 var timeParser = d3.timeParse("%H:%M %p");
@@ -197,6 +197,7 @@ d3.selection.prototype.appendLink = function (css, text, href) {
 function makeCitation(paper) {
   var APA = "";
   var authors = paper.Authors.split(", ");
+  authors = authors.map(convertName2Reference);
   APA = authors[0];
   if (authors.length == 2)
     APA += " and " + authors[1];
@@ -219,6 +220,20 @@ function makeCitation(paper) {
   bibtex += "}";
 
   return APA + "\n\n" + bibtex;
+}
+
+// make a reference-style initial name
+var particles = [" von der ", " van der ", " van den ", " van het ", " op het ", " van ", " von ", " de ", " di ", " d’ "]; // more?
+function convertName2Reference(name) {
+  var shortName = "";
+  var particle = particles.map(p => name.includes(p) ? p : "").filter(p => p != "");
+  particle = particle.length == 0 ? "" : particle[0];
+  if (particle != "")
+    name = name.replace(particle, " ");
+  var tokens = name.split(" ");
+  var lastName = tokens.pop();
+  var firstInitials = tokens.map(t => t.trim()[0] + ".").join(" ");
+  return firstInitials + particle.trimRight() + " " + lastName;
 }
 
 // show/hide the expand region
