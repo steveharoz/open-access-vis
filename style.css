@@ -2,6 +2,7 @@ body {
     font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
     padding-bottom: 4em;
 }
+h1 img { height: 1.25em; margin-top: -.25em; }
 .mediaLinks { padding-top: 25px; }
 .mediaLinks a { float: right; margin-left: .5em; }
 .mediaLinks svg {
