@@ -130,7 +130,7 @@ function buildPage() {
   ///// expander content  /////
   var expandInfo = papers.append("div")
     .attr("id", d => d.simpleName + "_expandInfo")
-    .classed("col-sm-8 col-xs-12 expandInfo collapse", true);
+    .classed("col-sm-8 col-sm-offset-2 expandInfo collapse", true);
   abstracts = expandInfo.append("p")
     .classed("abstract", true);
   expandInfo.append("pre")

@@ -50,7 +50,7 @@ body {
 
 
 .paper { 
-    margin-bottom: 1em; 
+    margin-bottom: 3em; 
     padding-top: 0.5em;
 }
 
@@ -60,6 +60,7 @@ body {
 .other   .paper:nth-of-type(2n) { background-color: #e0e0e0; } */
 .paper .thumbExpander { 
     margin-right: -20px; 
+    margin-bottom: -2em; /* to let left margin of expandInfo overlap with this */
     cursor: pointer;
     clear: both;
 }
