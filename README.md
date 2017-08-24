@@ -8,16 +8,16 @@ Please create an [issue](https://github.com/steveharoz/open-access-vis/issues) t
 
 **Important: Do not retrieve any information from IEEE (especially abstracts and thumbnails). Everything should come from other sources.**
 
+## Adding or modifying the data:
+
+The data is stored in [openaccessvis.csv](openaccessvis.csv), but don't edit it directly. The file will be pulled from [this google spreadsheet](https://docs.google.com/spreadsheets/d/11ZNUflBnK47ljl_g0NVJFntP1xb8qsSv-PcpinoeWRw/edit?usp=sharing). To make a change, you can either make a comment on the spreadsheet or put the info in a new github [issue](https://github.com/steveharoz/open-access-vis/issues).
+
 ## URLs:
 
 * URLs on an open access repository are prioritized for longevity.
 * White-listed open access repositories are in the `OADomains` variable in [js/load.js](js/load.js#L10). Let me know if others should be added.
 * For URLs outside of an open access repository, it must be on the site of an author or their institution.
 * The paper must be viewable directly in a browser without any required download.
-
-## Adding or modifying the data:
-
-The data is stored in [openaccessvis.csv](openaccessvis.csv), but don't edit it directly. The file will be pulled from [this google spreadsheet](https://docs.google.com/spreadsheets/d/11ZNUflBnK47ljl_g0NVJFntP1xb8qsSv-PcpinoeWRw/edit?usp=sharing). To make a change, you can either make a comment on the spreadsheet or put the info in a new issue.
 
 ## Thumbnails
 
