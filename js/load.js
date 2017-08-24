@@ -111,7 +111,7 @@ function buildPage() {
         .text(d => d.Authors);
   mid.append("p")
         .classed("time", true)
-        .text(d => formatTimeRange(d.ConferenceTimeStart, d.ConferenceTimeEnd) + " " + d.ConferenceDay);
+        .text(d => formatTimeRange(d.ConferenceTimeStart, d.ConferenceTimeEnd) + "  " + d.ConferenceDay + "  " + d.ConferenceRoom);
   mid.append("p")
         .classed("closedAccessMessage", true)
         .html("This paper does not appear to be available. Please encourage the authors to post their work.");
@@ -193,8 +193,8 @@ function formatTimeRange(start, end) {
   end = timeParser(end);
   // if both AM or both PM
   if ((start.getHours() >= 12)  ==  (end.getHours() >= 12))
-    return timeFormatterShort(start) + " - " + timeFormatterLong(end);
-  return timeFormatterLong(start) + " - " + timeFormatterLong(end);
+    return timeFormatterShort(start) + "-" + timeFormatterLong(end);
+  return timeFormatterLong(start) + "-" + timeFormatterLong(end);
 }
 
 // add a link and icon
