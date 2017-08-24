@@ -120,7 +120,7 @@ h1 img { height: 1.25em; margin-top: -.25em; opacity: .8; }
 .paper .expandInfo .videoWrapper {
 	position: relative;
 	padding-bottom: 56.25%; /* 16:9 */
-	margin-top: 1em;
+	margin-top: 1.5em;
 	height: 0;
 }
 .paper .expandInfo .videoWrapper iframe {
