@@ -1,11 +1,10 @@
 # How you can contribute to Open Access Vis
 
-Please create an [issue](https://github.com/steveharoz/open-access-vis/issues) for:
+Please create an [issue](https://github.com/steveharoz/open-access-vis/issues) to:
 
-* Missing data
-* Incorrect data
-* Video links (almost all are missing)
-* Thumbnails (a missing thumbnail or a better version of an existing one)
+* Add missing data
+* Fix incorrect data
+* Add thumbnails (a missing thumbnail or a better version of an existing one)
 
 **Important: Do not retrieve any information from (especially abstracts and thumbnails) from IEEE. Everything should come from other sources.**
 
@@ -31,8 +30,10 @@ For now, thumbnails are not in the repository. Feel free to email me new ones.
 
 ## Videos
 
+* Prioritize explanatory videos rather than teasers or eye candy.
 * Videos on Youtube, Vimeo, or hosted as an MP4 should all work.
 * Youtube spreadsheet format: `[youtube VIDEO_ID]`. For example `youtube Xj-AEmUwsvQ`
 * Vimeo spreadsheet format: `[vimeo VIDEO_ID]`. For example `vimeo 223373844`
-* Video file spreadsheet format: `[video VIDEO_URL]`. For example `video http://timelinesrevisited.github.io/supplemental/stories/routines.mp4`  
+* Video file spreadsheet format: `[video VIDEO_URL]`.  For example  
+`video http://timelinesrevisited.github.io/supplemental/stories/routines.mp4`  
 If the video file is hosted on a personal domain (not github), ask for permission before using.
