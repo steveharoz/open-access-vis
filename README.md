@@ -6,7 +6,7 @@ Please create an [issue](https://github.com/steveharoz/open-access-vis/issues) t
 * Fix incorrect data
 * Add thumbnails (a missing thumbnail or a better version of an existing one)
 
-**Important: Do not retrieve any information from (especially abstracts and thumbnails) from IEEE. Everything should come from other sources.**
+**Important: Do not retrieve any information from IEEE (especially abstracts and thumbnails). Everything should come from other sources.**
 
 ## URLs:
 
