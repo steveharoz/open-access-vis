@@ -10,7 +10,7 @@ Please create an [issue](https://github.com/steveharoz/open-access-vis/issues) t
 
 ## Adding or modifying the data:
 
-The data is stored in [openaccessvis.csv](openaccessvis.csv), but don't edit it directly. The file will be pulled from [this google spreadsheet](https://docs.google.com/spreadsheets/d/11ZNUflBnK47ljl_g0NVJFntP1xb8qsSv-PcpinoeWRw/edit?usp=sharing). To make a change, you can either make a comment on the spreadsheet or put the info in a new github [issue](https://github.com/steveharoz/open-access-vis/issues).
+The data is pulled from [this google spreadsheet](https://docs.google.com/spreadsheets/d/11ZNUflBnK47ljl_g0NVJFntP1xb8qsSv-PcpinoeWRw/edit?usp=sharing) into [openaccessvis.csv](openaccessvis.csv). To make a change, put the info in a new github [issue](https://github.com/steveharoz/open-access-vis/issues).
 
 ## URLs:
 
