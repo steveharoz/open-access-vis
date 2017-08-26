@@ -18,10 +18,6 @@ h1 svg:hover { fill: #5C7E99; }
     padding: 1em 1em 1px 1em; 
 }
 .session h3 { margin-top: 0; margin-bottom: 0.75em; }
-.infovis { background-color: #f0f0ff; }
-.vast    { background-color: #f0fff0; }
-.scivis  { background-color: #fff0f0; }
-.other  { background-color: #fafaea; }
 .session h3::before {
     display: inline-block;
     font-size: 10px;
@@ -32,13 +28,6 @@ h1 svg:hover { fill: #5C7E99; }
     vertical-align: 40%;
     font-weight: bold;
 }
-.infovis h3 { color: hsla(240, 100%, 80%, 1); }
-.vast    h3 { color: hsla(120,  50%, 70%, 1); }
-.scivis  h3 { color: hsla(0,   100%, 80%, 1); }
-.other   h3 { color: hsla(60, 75%, 45%, 1) }
-.infovis h3::before { content: "INFO"; }
-.vast    h3::before { content: "VAST"; }
-.scivis  h3::before { content: "SCI "; margin-right: .1em; }
 
 
 .paper { 
@@ -46,10 +35,7 @@ h1 svg:hover { fill: #5C7E99; }
     padding-top: 0.5em;
 }
 
-/*.infovis .paper:nth-of-type(2n) { background-color: #e0e0ff; }
-.vast    .paper:nth-of-type(2n) { background-color: #e0ffe0; }
-.scivis  .paper:nth-of-type(2n) { background-color: #ffe0e0; }
-.other   .paper:nth-of-type(2n) { background-color: #e0e0e0; } */
+
 .paper .thumbExpander { 
     margin-right: -20px; 
     margin-bottom: -3em; /* to let left margin of expandInfo overlap with this */
@@ -57,15 +43,11 @@ h1 svg:hover { fill: #5C7E99; }
     clear: both;
 }
 .paper .thumbExpander .spacer { 
-    /* position: absolute;  */
     width: 100%;
 }
 .paper .thumbExpander .thumb {
     left: 0;
-    /* background-color: rgba(0, 0, 0, 0.15); */
-    /* box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.15); */
     padding: 1px;
-    /* border: 1px rgba(0, 0, 0, 0.10) solid; */
     width: 100%;
     min-width: 100%;
 }
@@ -163,7 +145,6 @@ h1 svg:hover { fill: #5C7E99; }
 }
 .btn.active { box-shadow: inset 0 1px 3px rgba(0,0,0,.125); }
 .btn:focus, .btn:active:focus, .btn.active:focus { outline-style: none; }
-/* .btn.active:not(:active) { box-shadow: none; } */
 .btn[aria-pressed="false"] span:after { 
     font-family: 'Glyphicons Halflings';
     content: "\e157";
@@ -178,44 +159,8 @@ h1 svg:hover { fill: #5C7E99; }
 }
 .btn[aria-pressed="false"] svg.unchecked { display: inline-block; }
 .btn[aria-pressed="true"] svg.checked { display: inline-block; }
-.btn-infovis:hover, .btn-infovis:focus:hover {
-    color: hsla(240, 100%, 60%, 1);
-    background-color: hsla(240, 100%, 80%, 1);
-}
-.btn-infovis, .btn-infovis:focus {
-    color: hsla(240, 100%, 70%, 1);
-    background-color: hsla(240, 100%, 97%, 1);
-    border-color: hsla(240, 100%, 80%, 1);
-}
-.btn-vast:hover, .btn-vast:focus:hover {
-    color: hsla(120, 50%, 40%, 1);
-    background-color: hsla(120, 50%, 60%, 1);
-}
-.btn-vast, .btn-vast:focus {
-    color: hsla(120, 50%, 60%, 1);
-    background-color: hsla(120, 50%, 97%, 1);
-    border-color: hsla(120, 50%, 60%, 1);
-}
-.btn-scivis:hover, .btn-scivis:focus:hover {
-    color: hsla(0, 100%, 60%, 1);
-    background-color: hsla(0, 100%, 80%, 1);
-}
-.btn-scivis, .btn-scivis:focus {
-    color: hsla(0, 100%, 70%, 1);
-    background-color: hsla(0, 100%, 97%, 1);
-    border-color: hsla(0, 100%, 80%, 1);
-}
-.btn-other:hover, .btn-other:focus:hover {
-    color: hsla(60, 75%, 35%, 1);
-    background-color: hsla(60, 75%, 45%, 1);
-}
-.btn-other, .btn-other:focus {
-    color: hsla(60, 75%, 45%, 1);
-    background-color: #fafaea;
-    border-color: hsla(60, 75%, 45%, 1);
-}
 .btn-day:hover, .btn-day:focus:hover {
-    color: hsla(0, 0%, 30%, 1);
+    color: hsla(240, 0%, 99%, 1);
     background-color: hsla(0, 0%, 70%, 1);
 }
 .btn-day, .btn-day:focus {
@@ -297,4 +242,61 @@ h1 svg:hover { fill: #5C7E99; }
     }
     .paper .expandInfo .abstract { margin-left: .25em; }
     .paper .expandInfo pre { display: none; }
+}
+
+
+/* Track-specific styles */
+
+.infovis { background-color: #f0f0ff; }
+.vast    { background-color: #f0fff0; }
+.scivis  { background-color: #fff0f0; }
+.other  { background-color: #fafaea; }
+
+.infovis h3 { color: hsla(240, 100%, 80%, 1); }
+.vast    h3 { color: hsla(120,  50%, 70%, 1); }
+.scivis  h3 { color: hsla(0,   100%, 80%, 1); }
+.other   h3 { color: hsla(60, 75%, 45%, 1) }
+
+.infovis h3::before { content: "INFO"; }
+.vast    h3::before { content: "VAST"; }
+.scivis  h3::before { content: "SCI "; margin-right: .1em; }
+
+
+.btn-infovis:hover, .btn-infovis:focus:hover {
+    color: #f0f0ff;
+    background-color: hsla(240, 100%, 80%, 1);
+}
+.btn-infovis, .btn-infovis:focus {
+    color: hsla(240, 100%, 70%, 1);
+    background-color: hsla(240, 100%, 97%, 1);
+    border-color: hsla(240, 100%, 80%, 1);
+}
+.btn-vast:hover, .btn-vast:focus:hover {
+    color: #f0fff0;
+    background-color: hsla(120, 50%, 60%, 1);
+}
+.btn-vast, .btn-vast:focus {
+    color: hsla(120, 50%, 60%, 1);
+    background-color: hsla(120, 50%, 97%, 1);
+    border-color: hsla(120, 50%, 60%, 1);
+}
+.btn-scivis:hover, .btn-scivis:focus:hover {
+    color: #fff0f0;
+    background-color: hsla(0, 100%, 80%, 1);
+}
+.btn-scivis, .btn-scivis:focus {
+    color: hsla(0, 100%, 70%, 1);
+    background-color: hsla(0, 100%, 97%, 1);
+    border-color: hsla(0, 100%, 80%, 1);
+}
+.btn-other:hover, .btn-other:focus:hover {
+    color: #fafaea;
+    background-color: hsla(60, 75%, 45%, 1);
+}
+.btn-other, .btn-other:focus {
+    color: hsla(60, 75%, 45%, 1);
+    background-color: #fafaea;
+    border-color: hsla(60, 75%, 45%, 1);
+}
+
 }
