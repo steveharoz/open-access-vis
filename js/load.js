@@ -2,11 +2,13 @@ var asdf = require("d3"); // dummy call for vscode
 var dataCSV, dataNested; // keep data global
 var thumbnails, abstracts; // set the big things last
 var dayNames = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-var dayAbrevs = {"Tuesday morning": "Tu AM", "Tuesday afternoon": "Tu PM", 
+var dayAbrevs = {"Saturday morning": "Sa AM", "Saturday afternoon": "Sa PM", 
+                 "Sunday morning": "Su AM", "Sunday afternoon": "Su PM", 
+                 "Monday morning": "M AM", "Monday afternoon": "M PM", 
+                 "Tuesday morning": "Tu AM", "Tuesday afternoon": "Tu PM", 
                  "Wednesday morning": "W AM", "Wednesday afternoon": "W PM", 
                  "Thursday morning": "Th AM", "Thursday afternoon": "Th PM", 
                  "Friday morning": "F AM", "Friday afternoon": "F PM"};
-var journals = {"TVCG": "Transactions on Visualization and Computer Graphics", "C&GA": "Computer Graphics and Applications", "VAST": "Proceedings of IEEE VAST 2017"};
 var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "hal.inria.fr", "hal.archives-ouvertes.fr", "eprints.whiterose.ac.uk"];
 var linkImages = {"PDF": "file-text", "Material": "materials", "Data": "data", "Explanation": "info"};
 var timeParser = d3.timeParse("%I:%M %p");
@@ -15,7 +17,7 @@ var untouched = true;
 
 
 // load and parse the data
-d3.csv("openaccessvis.csv", d => d, function(error, data) {
+d3.csv(dataSource, d => d, function(error, data) {
   if (error) throw error;
   dataCSV = data;
   
@@ -168,7 +170,7 @@ function dropLeadingArticle (text) {
 function getThumbnailPath(paper) {
   if (paper.closedAccess)
     return "images/Closed_Access_Research.svg";
-  return "thumbnails/" + paper.simpleName + ".png";
+  return thumbnailFolder + paper.simpleName + ".png";
 }
 
 // is the pdf on a true open access repository
