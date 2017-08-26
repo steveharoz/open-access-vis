@@ -263,7 +263,7 @@ h1 svg:hover { fill: #5C7E99; }
 
 
 .btn-infovis:hover, .btn-infovis:focus:hover {
-    color: #f0f0ff;
+    color: hsla(240, 100%, 97%, 1);
     background-color: hsla(240, 100%, 80%, 1);
 }
 .btn-infovis, .btn-infovis:focus {
@@ -272,7 +272,7 @@ h1 svg:hover { fill: #5C7E99; }
     border-color: hsla(240, 100%, 80%, 1);
 }
 .btn-vast:hover, .btn-vast:focus:hover {
-    color: #f0fff0;
+    color: hsla(120, 50%, 97%, 1);
     background-color: hsla(120, 50%, 60%, 1);
 }
 .btn-vast, .btn-vast:focus {
@@ -281,22 +281,34 @@ h1 svg:hover { fill: #5C7E99; }
     border-color: hsla(120, 50%, 60%, 1);
 }
 .btn-scivis:hover, .btn-scivis:focus:hover {
-    color: #fff0f0;
+    color: hsla(0, 65%, 95%, 1);
     background-color: hsla(0, 100%, 80%, 1);
 }
 .btn-scivis, .btn-scivis:focus {
     color: hsla(0, 100%, 70%, 1);
-    background-color: hsla(0, 100%, 97%, 1);
+    background-color: hsla(0, 65%, 95%, 1);
     border-color: hsla(0, 100%, 80%, 1);
 }
 .btn-other:hover, .btn-other:focus:hover {
-    color: #fafaea;
+    color: hsla(60, 65%, 95%, 1);
     background-color: hsla(60, 75%, 45%, 1);
 }
 .btn-other, .btn-other:focus {
     color: hsla(60, 75%, 45%, 1);
-    background-color: #fafaea;
+    background-color: hsla(60, 65%, 95%, 1);
     border-color: hsla(60, 75%, 45%, 1);
 }
 
+
+.visap { background-color: #faf2ea; }
+.visap h3 { color: hsla(30, 75%, 45%, 1) }
+.visap h3::before { content: "VISAP"; }
+.btn-visap:hover, .btn-visap:focus:hover {
+    color: hsla(30, 65%, 95%, 1);
+    background-color: hsla(30, 75%, 45%, 1);
+}
+.btn-visap, .btn-visap:focus {
+    color: hsla(30, 75%, 45%, 1);
+    background-color: hsla(30, 65%, 95%, 1);
+    border-color: hsla(30, 75%, 45%, 1);
 }
