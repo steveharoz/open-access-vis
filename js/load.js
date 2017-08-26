@@ -181,8 +181,8 @@ function isOpenAccessDomain(href) {
 }
 
 // time to string converter
-var timeFormatterShort = d3.timeFormat("%-H:%M");
-var timeFormatterLong = d3.timeFormat("%-H:%M %p");
+var timeFormatterShort = d3.timeFormat("%-I:%M");
+var timeFormatterLong = d3.timeFormat("%-I:%M %p");
 function timeFormatter(time, AMPM) {
   return AMPM ? timeFormatterLong(time) : timeFormatterShort(time);
 }
