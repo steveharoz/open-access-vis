@@ -166,7 +166,6 @@ h1 svg:hover { fill: #5C7E99; }
 .btn-day, .btn-day:focus {
     color: hsla(0, 0%, 50%, 1);
     background-color: hsla(240, 0%, 99%, 1);
-    border-color: hsla(0, 0%, 70%, 1);
 }
 
 .paper.closedAccess .thumbExpander { cursor: default; }
@@ -269,7 +268,6 @@ h1 svg:hover { fill: #5C7E99; }
 .btn-infovis, .btn-infovis:focus {
     color: hsla(240, 100%, 70%, 1);
     background-color: hsla(240, 100%, 97%, 1);
-    border-color: hsla(240, 100%, 80%, 1);
 }
 .btn-vast:hover, .btn-vast:focus:hover {
     color: hsla(120, 50%, 97%, 1);
@@ -278,7 +276,6 @@ h1 svg:hover { fill: #5C7E99; }
 .btn-vast, .btn-vast:focus {
     color: hsla(120, 50%, 60%, 1);
     background-color: hsla(120, 50%, 97%, 1);
-    border-color: hsla(120, 50%, 60%, 1);
 }
 .btn-scivis:hover, .btn-scivis:focus:hover {
     color: hsla(0, 65%, 95%, 1);
@@ -287,7 +284,6 @@ h1 svg:hover { fill: #5C7E99; }
 .btn-scivis, .btn-scivis:focus {
     color: hsla(0, 100%, 70%, 1);
     background-color: hsla(0, 65%, 95%, 1);
-    border-color: hsla(0, 100%, 80%, 1);
 }
 .btn-other:hover, .btn-other:focus:hover {
     color: hsla(60, 65%, 95%, 1);
@@ -296,7 +292,6 @@ h1 svg:hover { fill: #5C7E99; }
 .btn-other, .btn-other:focus {
     color: hsla(60, 75%, 45%, 1);
     background-color: hsla(60, 65%, 95%, 1);
-    border-color: hsla(60, 75%, 45%, 1);
 }
 
 
@@ -310,5 +305,4 @@ h1 svg:hover { fill: #5C7E99; }
 .btn-visap, .btn-visap:focus {
     color: hsla(30, 75%, 45%, 1);
     background-color: hsla(30, 65%, 95%, 1);
-    border-color: hsla(30, 75%, 45%, 1);
 }
