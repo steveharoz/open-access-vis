@@ -163,6 +163,9 @@ function dropLeadingArticle (text) {
   if (text.startsWith("A ")) text = text.substring(2);
   if (text.startsWith("An ")) text = text.substring(3);
   if (text.startsWith("The ")) text = text.substring(4);
+  // numerical leads are bad too
+  if (!isNaN(parseInt(text[0])))
+    text = text.substring(text.indexOf(" ") + 1);
   return text;
 }
 
@@ -286,8 +289,10 @@ function convertName2Reference(name) {
 
 // show/hide the expand region
 function expandEventHandler(left, paper) {
-  if (untouched)
+  if (untouched) {
     abstracts.html(d => d.Abstract);
+    untouched = false;
+  }
   if (paper.closedAccess) 
     return;
   var id = '#' + paper.simpleName;
