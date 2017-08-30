@@ -19,12 +19,19 @@ The data is pulled from [this google spreadsheet](https://docs.google.com/spread
 * For URLs outside of an open access repository, it must be on the site of an author or their institution.
 * The paper must be viewable directly in a browser without any required download.
 
+## Explanation page:
+
+The explanation page is for sites that contain more than the basic information. It's not simply a "landing page", and it includes a simpler description of the project and/or a demo. Good examples:
+
+* [Timecurves](http://www.aviz.fr/~bbach/timecurves/)
+* [Timelines Revisited](https://timelinesrevisited.github.io/)
+
 ## Thumbnails
 
-* The filename is the first non-article word in the title + `"_"` + first name of first author + `".png"` (all lower case).  
-For example, "A Nifty Vis System" by Jane Smith and John Smith would become `nifty_jane.png`
 * The image should be 400 x 300 pixels.
 * Try to find a figure that is explanatory rather than just eye candy.
+* The filename is the first non-article word in the title + `"_"` + first name of first author + `".png"` (all lower case).  
+For example, "A Nifty Vis System" by Jane Smith and John Smith would become `nifty_jane.png`
 
 For now, thumbnails are not in the repository. Feel free to email me new ones.
 
