@@ -15,7 +15,7 @@ The data is pulled from [this google spreadsheet](https://docs.google.com/spread
 ## URLs:
 
 * URLs on an open access repository are prioritized for longevity.
-* White-listed open access repositories are in the `OADomains` variable in [js/load.js](js/load.js#L10). Let me know if others should be added.
+* White-listed open access repositories are in the `OADomains` variable in [js/load.js](../js/load.js#L12). Let me know if others should be added.
 * For URLs outside of an open access repository, it must be on the site of an author or their institution.
 * The paper must be viewable directly in a browser without any required download.
 

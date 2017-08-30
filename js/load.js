@@ -328,8 +328,8 @@ function makeDayButtons() {
 function checkImageSizes() {
   d3.selectAll(".thumb").each(function(d) {
     var a = d3.select(this).node();
-    if (a.naturalHeight > a.naturalWidth * .75)
-    console.log(a.src);
+    if (a.naturalHeight < a.naturalWidth * .75 && !a.src.includes("Closed_Access"))
+    console.log(a.naturalHeight + " x " + a.naturalWidth + ": " + a.src);
   });
 }
 
