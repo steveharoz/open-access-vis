@@ -98,6 +98,7 @@ function buildPage() {
   var expander = left.append("div").classed("thumbExpanderContainer", true);
   thumbnails = expander.append("div").classed("thumbContainer", true).append("img")
     .classed("thumb", true)
+    .on("error", (d,i,nodes) => d3.select(nodes[i]).attr("src", "images/no_thumbnail.png" ))
     .attr("src", "images/Closed_Access_Research.svg");
   expander.append("img").classed("expander", true).attr("src", "images/chevron-circle-down.svg");
   left.on("click", (d,i) => expandEventHandler(left, d));
