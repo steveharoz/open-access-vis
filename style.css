@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 body {
-    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+    font-family: Roboto,Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+    font-weight: 400;
     padding-bottom: 4em;
 }
 h1 img { height: 1.25em; margin-top: -.25em; opacity: .8; }
@@ -77,14 +79,22 @@ h1 svg:hover { fill: #5C7E99; }
 }
 .paper.isExpanded .expander { transform: rotate(180deg); }
 
-.paper p {
+.paper.fullOpenAccess .thumbExpander .thumb { padding: 2px; }
+.paper.fullOpenAccess .thumbExpander .thumbExpanderContainer .thumbContainer { 
+    background-color: rgba(0, 0, 0, 1); 
+}
+
+.paper p, .paper h4 {
     margin-bottom: 0.1em;
     color: hsla(0,0%,0%,0.75);
 }
 .paper .title {
-    font-weight: bold;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 500; 
     margin-top: -0.2em;
 }
+.paper.fullOpenAccess .title { font-weight: bold; }
 .paper .time { font-family: Consolas, monaco, monospace; white-space: pre; }
 .paper .expandInfo { margin-left: calc(16.666666% - 20px); }
 .paper .expandInfo .mobileThumb { display: none; }
@@ -134,6 +144,7 @@ h1 svg:hover { fill: #5C7E99; }
     vertical-align: text-top; 
     display: inline-block; 
 }
+.paper .link.OADomain { font-weight: 500; }
 
 .btn { 
     border-radius: 3px; 
