@@ -10,7 +10,7 @@ var dayAbrevs = {"Saturday morning": "Sa AM", "Saturday afternoon": "Sa PM",
                  "Thursday morning": "Th AM", "Thursday afternoon": "Th PM", 
                  "Friday morning": "F AM", "Friday afternoon": "F PM"};
 var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "hal.inria.fr", "hal.archives-ouvertes.fr", "eprints.whiterose.ac.uk"];
-var linkImages = {"PDF": "file-text", "Material": "materials", "Data": "data", "Explanation": "info"};
+var linkImages = {"PDF": "file-text", "Materials": "materials", "Data": "data", "Explanation": "info"};
 var timeParser = d3.timeParse("%I:%M %p");
 var style = "col-md-12 col-lg-10 col-lg-offset-1";
 var untouched = true;
@@ -128,7 +128,7 @@ function buildPage() {
       .attr("src", "images/chevron-circle-down.svg");
     mobileExpander.on("click", (d,i) => expandEventHandler(left, d));
   right.appendLink("PDF", "PDF", d => d.AuthorPDF);
-  right.appendLink("sourceMaterial", "Material", d => d.SourceMaterials);
+  right.appendLink("sourceMaterial", "Materials", d => d.SourceMaterials);
   right.appendLink("data", "Data", d => d.Data);
   right.appendLink("projectPage", "Explanation", d => d.ExplanationPage);
 
