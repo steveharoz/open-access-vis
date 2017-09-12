@@ -79,10 +79,7 @@ h1 svg:hover { fill: #5C7E99; }
 }
 .paper.isExpanded .expander { transform: rotate(180deg); }
 
-.paper.fullOpenAccess .thumbExpander .thumb { padding: 2px; }
-.paper.fullOpenAccess .thumbExpander .thumbExpanderContainer .thumbContainer { 
-    background-color: rgba(0, 0, 0, 1); 
-}
+.paper.fullOpenAccess .thumbExpander .thumb { border-left: 2px solid black; }
 
 .paper p, .paper h4 {
     margin-bottom: 0.1em;

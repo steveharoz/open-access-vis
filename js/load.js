@@ -9,7 +9,7 @@ var dayAbrevs = {"Saturday morning": "Sa AM", "Saturday afternoon": "Sa PM",
                  "Wednesday morning": "W AM", "Wednesday afternoon": "W PM", 
                  "Thursday morning": "Th AM", "Thursday afternoon": "Th PM", 
                  "Friday morning": "F AM", "Friday afternoon": "F PM"};
-var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "/hal.", "/eprints."];
+var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "/hal.", "/eprints.", "/openaccess."];
 var linkImages = {"PDF": "file-text", "Materials": "materials", "Data": "data", "Explanation": "info"};
 var timeParser = d3.timeParse("%I:%M %p");
 var style = "col-md-12 col-lg-10 col-lg-offset-1";
