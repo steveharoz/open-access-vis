@@ -190,9 +190,6 @@ function isOpenAccessDomain(href) {
 // time to string converter
 var timeFormatterShort = d3.timeFormat("%-I:%M");
 var timeFormatterLong = d3.timeFormat("%-I:%M %p");
-function timeFormatter(time, AMPM) {
-  return AMPM ? timeFormatterLong(time) : timeFormatterShort(time);
-}
 
 // time range to string
 function formatTimeRange(start, end) {
@@ -311,6 +308,7 @@ function makeDayButtons() {
     .data(dataNested).enter()
     .append("button")
       .attr("type", "button")
+      .attr("id", d => "#" + d.key.split("|")[1].replace(" ", "_") + "_btn")
       .classed("btn active btn-day", true)
       .attr("data-toggle", "button") 
       .attr("data-subset", d => "#" + d.key.split("|")[1].replace(" ", "_"))
@@ -324,6 +322,10 @@ function makeDayButtons() {
     var isPressed = d3.select(this).attr("aria-pressed");
     d3.selectAll(subset).style("display", isPressed == "false" ? "block" : "none");
   });
+}
+
+function makeViewCurrent() {
+  d3.now()
 }
 
 // just for dev
