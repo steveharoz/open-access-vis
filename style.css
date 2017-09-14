@@ -16,8 +16,8 @@ h1 svg:hover { fill: #5C7E99; }
 
 
 .session { 
-    margin-bottom: 0.25em;
-    padding: 1em 1em 1px 1em; 
+    margin-bottom: 0.5em;
+    padding: 1em 1em .5em 1em; 
 }
 .session h3 { margin-top: 0; margin-bottom: 0.75em; }
 .session h3::before {
@@ -33,7 +33,8 @@ h1 svg:hover { fill: #5C7E99; }
 
 
 .paper { 
-    margin-bottom: 3em; 
+    margin-bottom: 1em; 
+    min-height: 7em;
     padding-top: 0.5em;
 }
 
