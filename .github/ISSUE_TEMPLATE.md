@@ -1,7 +1,7 @@
-To propose new paper URLs or incorrect info:
-1. Specify the paper title
+To add new paper URLs or fix incorrect info:
+
+1. Specify the paper title and first author
 2. Ensure that an entry includes at least the paper url and abstract
+3. Specify any additional info (see the column descriptions [here](https://docs.google.com/spreadsheets/d/11ZNUflBnK47ljl_g0NVJFntP1xb8qsSv-PcpinoeWRw/edit#gid=672975494))
 
-Putting a paper thumbnails in this issue (400x300 png) is appreciated but not required.
-
-Paper data and column descriptions are in the [this spreadsheet](https://docs.google.com/spreadsheets/d/11ZNUflBnK47ljl_g0NVJFntP1xb8qsSv-PcpinoeWRw/edit#gid=672975494). Please check it before suggesting materials, data, or explanation URLs.
+Thumbnails can be pasted into this issue (as a 400 x 300 png). Or feel free to email me thumbnails.

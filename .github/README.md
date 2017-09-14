@@ -33,7 +33,7 @@ The explanation page is for sites that contain more than the basic information. 
 * The filename is the first non-article word in the title + `"_"` + first name of first author + `".png"` (all lower case).  
 For example, "A Nifty Vis System" by Jane Smith and John Smith would become `nifty_jane.png`
 
-For now, thumbnails are not in the repository. Feel free to email me new ones.
+For now, thumbnails are not in the repository. Feel free to paste new ones into a github issue or email them to me.
 
 ## Videos
 
