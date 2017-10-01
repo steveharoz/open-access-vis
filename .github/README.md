@@ -8,9 +8,9 @@ Please create an [issue](https://github.com/steveharoz/open-access-vis/issues) t
 
 **Important: Do not retrieve any information from IEEE (especially abstracts and thumbnails). Everything should come from other sources.**
 
-## Adding or modifying the data:
+## Adding a workshop:
 
-The data is pulled from [this google spreadsheet](https://docs.google.com/spreadsheets/d/11ZNUflBnK47ljl_g0NVJFntP1xb8qsSv-PcpinoeWRw/edit?usp=sharing) into [openaccessvis.csv](openaccessvis.csv). To make a change, put the info in a new github [issue](https://github.com/steveharoz/open-access-vis/issues).
+All you have to do is add the data to the workshop spreadsheet. Email me for more info.
 
 ## URLs:
 
@@ -25,6 +25,7 @@ The explanation page is for sites that contain more than the basic information. 
 
 * [Timecurves](http://www.aviz.fr/~bbach/timecurves/)
 * [Timelines Revisited](https://timelinesrevisited.github.io/)
+* [Isotype Visualization](http://steveharoz.com/research/isotype/) (blatent self promotion)
 
 ## Thumbnails
 
