@@ -10,7 +10,7 @@ Please create an [issue](https://github.com/steveharoz/open-access-vis/issues) t
 
 ## Adding a workshop:
 
-All you have to do is add the data to the workshop spreadsheet. Email me for more info.
+All you have to do is add the data to [the workshop spreadsheet](https://docs.google.com/spreadsheets/d/11ZNUflBnK47ljl_g0NVJFntP1xb8qsSv-PcpinoeWRw). Email me for more info.
 
 ## URLs:
 
