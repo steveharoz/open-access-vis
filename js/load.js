@@ -17,41 +17,57 @@ var untouched = true;
 
 
 // load and parse the data
-d3.csv(dataSource, d => d, function(error, data) {
-  if (error) throw error;
-  dataCSV = data;
+function load() {
   
-  // make some extra properties
-  dataCSV = dataCSV.map(d => { 
-    d.PM = timeParser(d.ConferenceTimeStart).getHours() > 12; 
-    d.closedAccess = d.AuthorPDF == ""; 
-    d.simpleName = getSimpleName(d);
-    return d; 
-  });
+  // if on a server with php, use the optimized approach...
+  if (typeof dataString !== "undefined") {
+    var data = d3.csvParse(dataString);
+    LoadCSVData(data);
+  // if there isn't php (e.g, debugging), load the file via d3...
+  } else {
+    d3.csv(dataFilename, d => d, function (error, data) {
+      if (error)
+        throw error;
+      LoadCSVData(data);
+    });
+  }
+}
 
+function LoadCSVData(data) {
+  d3.select(".container").append('h2').text("HELLO WORLD 2");
+
+
+  dataCSV = data;
+  // make some extra properties
+  dataCSV = dataCSV.map(d => {
+    d.PM = timeParser(d.ConferenceTimeStart).getHours() > 12;
+    d.closedAccess = d.AuthorPDF == "";
+    d.simpleName = getSimpleName(d);
+    return d;
+  });
   // nest the data
   dataNested = d3.nest()
     // day
     .key(d => (dayNames.indexOf(d.ConferenceDay) + (+d.PM * 0.5)) + "|" + d.ConferenceDay + " " + (d.PM ? "afternoon" : "morning"))
-    .sortKeys((a,b) => a.split("|")[0] - b.split("|")[0])
+    .sortKeys((a, b) => a.split("|")[0] - b.split("|")[0])
     // session
     .key(d => d.ConferenceTrack + "|" + d.ConferenceSession)
-    .sortKeys((a,b) => a.localeCompare(b))
+    .sortKeys((a, b) => a.localeCompare(b))
     .entries(dataCSV);
   dataNested = dataNested.map(d => {
-      // sort papers within each session
-      d.values = d.values.map(s => {
-          s.values.sort( (a,b) => timeParser(a.ConferenceTimeStart) - timeParser(b.ConferenceTimeStart));
-          s.startTime = s.values[0].ConferenceTimeStart;
-          return s;
-      });
-      // sort sessions
-      d.values.sort( (a,b) => timeParser(a.startTime) - timeParser(b.startTime) )
-      return d;
+    // sort papers within each session
+    d.values = d.values.map(s => {
+      s.values.sort((a, b) => timeParser(a.ConferenceTimeStart) - timeParser(b.ConferenceTimeStart));
+      s.startTime = s.values[0].ConferenceTimeStart;
+      return s;
+    });
+    // sort sessions
+    d.values.sort((a, b) => timeParser(a.startTime) - timeParser(b.startTime));
+    return d;
   });
 
   buildPage();
-});
+}
 
 // use the data to construct the page elements
 function buildPage() {
@@ -345,3 +361,6 @@ function checkCompleteness() {
     .entries(dataCSV);
     console.log(completeness);
 }
+
+// after this file is fully parsed...
+load();
