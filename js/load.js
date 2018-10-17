@@ -34,8 +34,6 @@ function load() {
 }
 
 function LoadCSVData(data) {
-  d3.select(".container").append('h2').text("HELLO WORLD 2");
-
 
   dataCSV = data;
   // make some extra properties
