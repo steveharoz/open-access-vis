@@ -160,6 +160,9 @@ function buildPage() {
   expandInfo.append("pre")
     .classed("citation", true)
     .text(makeCitation);
+  expandInfo.append("div")
+    .classed("notReliable", true)
+    .html('This paper could not be found on any reliable open access repository such as osf.io or arxiv.org. Explanations, demos, video previews, and citation information for this paper will not be available unless the authors post it reliably. For more information about reliable open access, click <a href="about.html#reliable">here</a>.')
 
   // load thumbnails last
   thumbnails.attr("src", getThumbnailPath);

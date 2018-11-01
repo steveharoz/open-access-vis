@@ -119,6 +119,16 @@ h1 svg:hover { fill: #5C7E99; }
     word-break: normal;
 }
 
+/* hide extras when not fullOpenAccess */
+.paper:not(.fullOpenAccess) .expandInfo .videoWrapper { display: none; }
+.paper:not(.fullOpenAccess) .expandInfo .projectPage { display: none; }
+.paper:not(.fullOpenAccess) .expandInfo pre { display: none; }
+.paper.fullOpenAccess .expandInfo .notReliable { display: none; }
+.paper .expandInfo .notReliable { 
+    margin-top: 0.5em;
+    opacity: 0.5; 
+}
+
 .paper .links { margin-top: -.2em; padding-right: 0; margin-bottom: -2em; }
 .paper .links .expander { display: none; }
 .paper .link[href=""] { 
