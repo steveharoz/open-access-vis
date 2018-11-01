@@ -144,6 +144,10 @@ h1 svg:hover { fill: #5C7E99; }
 }
 .paper .link.OADomain { font-weight: 500; }
 
+/* explanation or demo */
+.paper .link.projectPage { margin-top: 0.6em; }
+.paper .link.projectPage[href=""] { display: none; }
+
 .btn { 
     border-radius: 3px; 
     padding: 3px 6px;

@@ -10,7 +10,7 @@ var dayAbrevs = {"Saturday morning": "Sa AM", "Saturday afternoon": "Sa PM",
                  "Thursday morning": "Th AM", "Thursday afternoon": "Th PM", 
                  "Friday morning": "F AM", "Friday afternoon": "F PM"};
 var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "/hal.", "/eprints.", "/openaccess."];
-var linkImages = {"PDF": "file-text", "Materials": "materials", "Data": "data", "Explanation": "info"};
+var linkImages = {"PDF": "file-text", "Materials": "materials", "Data": "data", "Explanation or demo": "info"};
 var timeParser = d3.timeParse("%I:%M %p");
 var style = "col-md-12 col-lg-10 col-lg-offset-1";
 var untouched = true;
@@ -145,7 +145,6 @@ function buildPage() {
   right.appendLink("PDF", "PDF", d => d.AuthorPDF);
   right.appendLink("sourceMaterial", "Materials", d => d.SourceMaterials);
   right.appendLink("data", "Data", d => d.Data);
-  right.appendLink("projectPage", "Explanation", d => d.ExplanationPage);
 
 
   ///// expander content  /////
@@ -155,6 +154,7 @@ function buildPage() {
   var mobileThumbnails = expandInfo.append("img").classed("mobileThumb", true);
   abstracts = expandInfo.append("p")
     .classed("abstract", true);
+  expandInfo.appendLink("projectPage", "Explanation or demo", d => d.ExplanationPage);  
   videos = expandInfo.append("div")
     .classed("videoWrapper empty", true);
   expandInfo.append("pre")
