@@ -40,8 +40,8 @@ For now, thumbnails are not in the repository. Feel free to paste new ones into 
 
 * Prioritize explanatory videos rather than teasers or eye candy.
 * Videos on Youtube, Vimeo, or hosted as an MP4 should all work.
-* Youtube spreadsheet format: `[youtube VIDEO_ID]`. For example `youtube Xj-AEmUwsvQ`
-* Vimeo spreadsheet format: `[vimeo VIDEO_ID]`. For example `vimeo 223373844`
-* Video file spreadsheet format: `[video VIDEO_URL]`.  For example  
+* Youtube spreadsheet format: `youtube VIDEO_ID`. For example `youtube Xj-AEmUwsvQ`
+* Vimeo spreadsheet format: `vimeo VIDEO_ID`. For example `vimeo 223373844`
+* Video file spreadsheet format: `video VIDEO_URL`.  For example  
 `video http://timelinesrevisited.github.io/supplemental/stories/routines.mp4`  
 If the video file is hosted on a personal domain (not github), ask for permission before using.
