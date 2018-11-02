@@ -116,7 +116,7 @@ function buildPage() {
     .on("error", (d,i,nodes) => d3.select(nodes[i]).attr("src", "images/no_thumbnail.png" ))
     .attr("src", "images/Closed_Access_Research.svg");
   expander.append("img").classed("expander", true).attr("src", "images/chevron-circle-down.svg");
-  left.on("click", (d,i) => expandEventHandler(left, d));
+  left.on("click", (d,i) => expandEventHandler(d));
 
   ///// basic info /////
   var mid = papers.append("div")
@@ -139,9 +139,9 @@ function buildPage() {
     .classed("col-sm-2 col-xs-12 links", true);
   var mobileExpander = right.append("div").classed("expanderContainer", true)
     .append("img")
-      .classed("expander", true)
-      .attr("src", "images/chevron-circle-down.svg");
-    mobileExpander.on("click", (d,i) => expandEventHandler(left, d));
+    .classed("expander", true)
+    .attr("src", "images/chevron-circle-down.svg");
+  mobileExpander.on("click", (d,i) => expandEventHandler(d));
   right.appendLink("PDF", "PDF", d => d.AuthorPDF);
   right.appendLink("sourceMaterial", "Materials", d => d.SourceMaterials);
   right.appendLink("data", "Data", d => d.Data);
@@ -305,7 +305,7 @@ function convertName2Reference(name) {
 }
 
 // show/hide the expand region
-function expandEventHandler(left, paper) {
+function expandEventHandler(paper) {
   if (untouched) {
     abstracts.html(d => d.Abstract);
     untouched = false;
@@ -342,9 +342,9 @@ function makeDayButtons() {
   });
 }
 
-function makeViewCurrent() {
-  d3.now()
-}
+//function makeViewCurrent() {
+//  d3.now()
+//}
 
 // just for dev
 function checkImageSizes() {

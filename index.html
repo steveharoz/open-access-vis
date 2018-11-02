@@ -43,7 +43,7 @@
         <div class="row">
           <div class="col-lg-10 col-lg-offset-1">
             <p>A collection of open access visualization research at the VIS 2018 conference. <a href="about.html">Info about the symbols and open access.</a> To edit the data, see <a href="https://github.com/steveharoz/open-access-vis#how-you-can-contribute-to-open-access-vis">GitHub</a>.</p>
-            <p>Also see <a href="/2017/">Open Access VIS for 2017</a></p>
+            <p>Also see <a href="2017/">Open Access VIS for 2017</a></p>
           </div>
         </div>
 
@@ -76,23 +76,13 @@
       var thumbnailFolder = "2018/thumbnails/"; 
       var journals = {"TVCG": "Transactions on Visualization and Computer Graphics", "CGA": "Computer Graphics and Applications", "VAST": "Proceedings of IEEE VAST 2018"};
     </script>
-    <!-- load via php -->
+    <!-- load data via php -->
     <?php 
-      $jsFilename = "js/d3.v4.min.js"; 
-      include("loadjs.php");
       $dataFilename = "2018/openaccessvis2018.csv"; 
       include_once("loadfile.php");
-      $jsFilename = "js/load.js"; 
-      include("loadjs.php");
     ?>
-    <!-- if php fails, use jquery -->
-    <script>
-      if ((typeof d3 == "undefined") || (typeof asdf == "undefined"))
-        $.getScript("js/d3.v4.min.js", function( data, textStatus, jqxhr ) {
-          $.getScript("js/load.js");
-        });
-    </script>
-    <!-- <script src="js/load.js"></script> -->
+    <script src="js/d3.v4.min.js"></script>
+    <script src="js/load.js"></script>
     <!-- analytics -->
   </body>
 </html>
