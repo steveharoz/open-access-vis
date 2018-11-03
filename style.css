@@ -89,7 +89,7 @@ h1 svg:hover { fill: #5C7E99; }
 .paper .title {
     font-size: inherit;
     line-height: inherit;
-    font-weight: 500; 
+    font-weight: 400; 
     margin-top: -0.2em;
 }
 .paper.fullOpenAccess .title { font-weight: bold; }
