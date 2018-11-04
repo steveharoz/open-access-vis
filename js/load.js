@@ -163,7 +163,7 @@ function buildPage() {
     .text(makeCitation);
   expandInfo.append("div")
     .classed("notReliable", true)
-    .html('This paper could not be found on any reliable open access repository such as osf.io or arxiv.org. Explanations, demos, video previews, and citation information for this paper will not be available unless the authors post it reliably. For more information about reliable open access, click <a href="about.html#reliable">here</a>.')
+    .html('This paper could not be found on any reliable open access repository such as osf.io or arxiv.org. Explanations, demos, video previews, and citation information for this paper will not be available unless the authors post it reliably. For more information about reliable open access, click <a href="about.html#reliable">here</a>.');
 
   // load thumbnails last
   thumbnails.attr("src", getThumbnailPath);
@@ -175,9 +175,9 @@ function buildPage() {
 // make a simple name for the paper
 function getSimpleName(paper, sep = "_") {
   var title = dropLeadingArticle(paper.Title);
-  return title.split(/[^\w]/, 3).filter(s => s!="").slice(0,2).join("_").toLowerCase()
-         + sep
-         + paper.Authors.split(/[^\w]/, 1)[0].toLowerCase();
+  return title.split(/[^\w]/, 3).filter(s => s!="").slice(0,2).join("_").toLowerCase() +
+         sep +
+         paper.Authors.split(/[^\w]/, 1)[0].toLowerCase();
 }
 function dropLeadingArticle (text) {
   if (text.startsWith("A ")) text = text.substring(2);
@@ -236,22 +236,23 @@ d3.selection.prototype.appendLink = function (css, text, href) {
 
   link.append("span")
     .text(text);
-}
+};
 
 // 
 function makeVideoFrame(video) {
   if (video == "")
     return "";
+  var videoID = [];
   if (video.startsWith("youtube ")) {
-    var videoID = video.split(" ")[1];
+    videoID = video.split(" ")[1];
     return `<iframe src="https://www.youtube-nocookie.com/embed/${videoID}?rel=0&amp;showinfo=0" width="1080" height="608" frameborder="0" allowfullscreen></iframe>`;
   }
   if (video.startsWith("vimeo ")) {
-    var videoID = video.split(" ")[1];
+    videoID = video.split(" ")[1];
     return `<iframe src="https://player.vimeo.com/video/${videoID}?byline=0" width="1080" height="608" frameborder="0" allowfullscreen></iframe>`;
   }
   if (video.startsWith("video ")) {
-    var videoID = video.split(" ")[1];
+    videoID = video.split(" ")[1];
     return `<video width="100%" controls=""><source src="${videoID}" type="video/mp4"></video>`;
   }
   return video;
@@ -336,7 +337,7 @@ function makeDayButtons() {
   
   // set up button events handlers
   d3.selectAll('button').on("click", function() {
-    var subset = d3.select(this).node().dataset["subset"];
+    var subset = d3.select(this).node().dataset.subset;
     var isPressed = d3.select(this).attr("aria-pressed");
     d3.selectAll(subset).style("display", isPressed == "false" ? "block" : "none");
   });
@@ -350,7 +351,7 @@ function makeDayButtons() {
 function checkImageSizes() {
   d3.selectAll(".thumb").each(function(d) {
     var a = d3.select(this).node();
-    if (a.naturalHeight < a.naturalWidth * .75 && !a.src.includes("Closed_Access"))
+    if (a.naturalHeight < a.naturalWidth * 0.75 && !a.src.includes("Closed_Access"))
     console.log(a.naturalHeight + " x " + a.naturalWidth + ": " + a.src);
   });
 }
@@ -361,7 +362,7 @@ function checkCompleteness() {
     .key(d => d.ReviewVenue)
     .rollup(rv => rv.filter(p => p.AuthorPDF!="").length / rv.length )
     .entries(dataCSV);
-    console.log(completeness);
+  //console.log(completeness);
 }
 
 // after this file is fully parsed...
