@@ -175,7 +175,7 @@ function buildPage() {
 // make a simple name for the paper
 function getSimpleName(paper, sep = "_") {
   var title = dropLeadingArticle(paper.Title);
-  return title.split(/[^\w]/, 1)[0].toLowerCase()
+  return title.split(/[^\w]/, 3).filter(s => s!="").slice(0,2).join("_").toLowerCase()
          + sep
          + paper.Authors.split(/[^\w]/, 1)[0].toLowerCase();
 }
