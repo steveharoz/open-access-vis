@@ -53,6 +53,7 @@ h1 svg:hover { fill: #5C7E99; }
     padding: 1px;
     width: 100%;
     min-width: 100%;
+    opacity: 0.67;
 }
 .paper .thumbExpander .thumbExpanderContainer { 
     position: absolute;
@@ -80,6 +81,9 @@ h1 svg:hover { fill: #5C7E99; }
 }
 .paper.isExpanded .expander { transform: rotate(180deg); }
 
+.paper.fullOpenAccess .thumbExpander .thumb {
+    opacity: 1;
+}
 .paper p, .paper h4 {
     margin-bottom: 0.1em;
     color: hsla(0,0%,0%,0.75);
