@@ -2,7 +2,7 @@
 body {
     font-family: Segoe UI,Roboto,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
     font-weight: 400;
-    padding-bottom: 4em;
+    padding-bottom: 1em;
 }
 h1 img { height: 1.25em; margin-top: -.25em; opacity: .8; }
 h1 svg { height: .8em; width: .8em; float: right; margin-left: .2em; margin-top: .2em; }
@@ -13,7 +13,7 @@ h1 svg:hover { fill: #5C7E99; }
     font-size: 0;
 }
 .controls > div { padding-bottom: 6px; }
-
+.footer { padding-top: 2em; }
 
 .session { 
     margin-bottom: 0.5em;
@@ -79,8 +79,6 @@ h1 svg:hover { fill: #5C7E99; }
     visibility: hidden;
 }
 .paper.isExpanded .expander { transform: rotate(180deg); }
-
-.paper.fullOpenAccess .thumbExpander .thumb { border-left: 2px solid black; }
 
 .paper p, .paper h4 {
     margin-bottom: 0.1em;
