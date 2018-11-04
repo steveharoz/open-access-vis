@@ -70,7 +70,7 @@ function LoadCSVData(data) {
 // use the data to construct the page elements
 function buildPage() {
   ///// Day /////
-  var days = d3.select(".container")
+  var days = d3.select("#content_goes_here")
     .selectAll(".day")
     .data(dataNested).enter();
   days = days.append("div")
