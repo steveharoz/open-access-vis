@@ -364,6 +364,10 @@ function checkCompleteness() {
     .entries(dataCSV);
   //console.log(completeness);
 }
+function justShowClosed() { 
+  d3.selectAll('.paper').style("display", "none");
+  d3.selectAll('.closedAccess').style("display", "block");
+}
 
 // after this file is fully parsed...
 load();
