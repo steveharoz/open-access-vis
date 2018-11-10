@@ -371,3 +371,4 @@ function justShowClosed() {
 
 // after this file is fully parsed...
 load();
+d3.select("#fetchable").remove();
