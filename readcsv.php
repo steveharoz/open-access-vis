@@ -7,9 +7,12 @@ array_shift($csv); # remove column header
 
 foreach ($csv as &$value) {
     #print('<a href="' . $value['AuthorPDF'] . '">');
-    print($value['ReviewVenue'] . ': ' . $value['Title'] . ' ' . $value['Authors']);
+    print($value['ReviewVenue'] . ': ' . $value['Title']);
     if ($value['AuthorPDF'] !== "")
-        print(' PDF');
+        print(' PDF. ');
+    else
+        print(' Not found. ');
+    print($value['Authors']);
     if ($value['SourceMaterials'] !== "")
         print(' Open Materials badge');
     if ($value['Data'] !== "")
