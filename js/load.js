@@ -18,7 +18,9 @@ var untouched = true;
 
 // load and parse the data
 function load() {
-  
+  // drop the fetchable text
+  d3.select("#fetchable").remove();
+
   // if on a server with php, use the optimized approach...
   if (typeof dataString !== "undefined") {
     var data = d3.csvParse(dataString);
@@ -34,7 +36,6 @@ function load() {
 }
 
 function LoadCSVData(data) {
-
   dataCSV = data;
   // make some extra properties
   dataCSV = dataCSV.map(d => {
@@ -371,4 +372,3 @@ function justShowClosed() {
 
 // after this file is fully parsed...
 load();
-d3.select("#fetchable").remove();
