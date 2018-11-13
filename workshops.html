@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="A collection of open access visualization research at the VIS workshops.">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@sharoz" />
     <meta name="twitter:title" content="Open Access VIS" />
-    <meta name="twitter:description" content="A collection of open access research at the VIS 2017 conference"/>
+    <meta name="twitter:description" content="A collection of open access research at the VIS workshops"/>
     <meta name="twitter:image" content="http://oavis.steveharoz.com/images/summary.png?2" />
     <link rel="shortcut icon" href="images/favicon.ico" />
     <title>Workshops - Open Access VIS</title>
@@ -43,7 +44,8 @@
 
         <div class="row">
           <div class="col-lg-10 col-lg-offset-1">
-            <p>A <a href="../">collection of open access visualization research</a> at the VIS 2017 conference. <a href="about.html">Info about the symbols and open access.</a> To edit the data, see <a href="https://github.com/steveharoz/open-access-vis">GitHub</a>.</p>
+            <p>A <a href="../">collection of open access visualization research</a> at the VIS 2018 conference. <a href="about.html">Info about the symbols and open access.</a> To edit the data, see <a href="https://github.com/steveharoz/open-access-vis">GitHub</a>.</p>
+            <p>Also see <a href="./">Open Access VIS for 2018</a>, <a href="./2017/">2017</a>, and <a href="./2017/workshops.html">2017 Workshops</a>.</p>
           </div>
         </div>
 
@@ -51,7 +53,8 @@
           <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1">
             <div class="controls">
               <div id="trackToggles">
-                <button type="button" class="btn active btn-visap"   data-toggle="button" data-subset=".visap"   aria-pressed="true" autocomplete="off"> <span>VISAP</span> </button>
+                <button type="button" class="btn active btn-beliv"   data-toggle="button" data-subset=".beliv"   aria-pressed="true" autocomplete="off"> <span>BELIV</span> </button>
+                <button type="button" class="btn active btn-vizsec"   data-toggle="button" data-subset=".vizsec"   aria-pressed="true" autocomplete="off"> <span>VizSec</span> </button>
               </div>
               <div id="dayToggles"></div>
             </div>
@@ -59,23 +62,42 @@
         </div>
 
         <!-- content goes here -->
+        <div id="content_goes_here"></div>
+
+        <div class="row footer">
+          <div class="col-lg-10 col-lg-offset-1">
+            <p>Created and maintained by <a href="https://twitter.com/sharoz">Steve Haroz</a>. Help with data entry was provided by <a href="https://twitter.com/rpgove">Robert Gove</a> (VizSec) and <a href="http://petra.isenberg.cc">Petra Isenberg</a> (BELIV).</p>
+          </div>
+        </div>
+        
+        <div id="fetchable">
+          <?php 
+            $dataFilename = "2018/workshops2018.csv"; 
+            include_once("readcsv.php"); 
+          ?>
+      </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!-- d3 -->
-    <script src="js/d3.v4.min.js"></script>
-    <!-- code -->
+
+    <!-- settings -->
     <script> function require(a) {} </script>
-    <!-- specific for workshops -->
     <script> 
-      var dataSource = "workshops.csv", thumbnailFolder = "thumbnails/workshops/";
-      var journals = {"VISAP": "In Proceedings of the IEEE VIS Arts Program"};
+      var dataFilename = "2018/workshops2018.csv";
+      var thumbnailFolder = "2018/thumbnails/workshops/"; 
+      var journals = {"Beliv": "Proceedings of IEEE BELIV 2018", "VizSec": "Proceedings of IEEE VizSec 2018"};
     </script>
-    <style> .paper {padding-bottom: .5em; }</style>
+    <!-- load data via php -->
+    <?php 
+      $dataFilename = "2018/workshops2018.csv"; 
+      include_once("loadfile.php");
+    ?>
+    <script src="js/d3.v4.min.js"></script>
     <script src="js/load.js"></script>
+
     <!-- analytics -->
     <?php include_once("oavis_analytics.php") ?>
   </body>

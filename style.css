@@ -320,14 +320,26 @@ h1 svg:hover { fill: #5C7E99; }
 }
 
 
-.visap { background-color: #faf2ea; }
-.visap h3 { color: hsla(30, 75%, 45%, 1) }
-.visap h3::before { content: "VISAP"; }
-.btn-visap:hover, .btn-visap:focus:hover {
-    color: hsla(30, 65%, 95%, 1);
-    background-color: hsla(30, 75%, 45%, 1);
+.beliv { background-color: hsla(45, 65%, 95%, 1); }
+.beliv h3 { color: hsla(45, 75%, 45%, 1) }
+.beliv h3::before { content: "BELIV"; }
+.btn-beliv:hover, .btn-beliv:focus:hover {
+    color: hsla(45, 65%, 95%, 1);
+    background-color: hsla(45, 75%, 45%, 1);
 }
-.btn-visap, .btn-visap:focus {
-    color: hsla(30, 75%, 45%, 1);
-    background-color: hsla(30, 65%, 95%, 1);
+.btn-beliv, .btn-beliv:focus {
+    color: hsla(45, 75%, 45%, 1);
+    background-color: hsla(45, 65%, 95%, 1);
+}
+
+.vizsec { background-color: hsla(150, 65%, 95%, 1); }
+.vizsec h3 { color: hsla(150, 75%, 45%, 1) }
+.vizsec h3::before { content: "VIZSEC"; }
+.btn-vizsec:hover, .btn-vizsec:focus:hover {
+    color: hsla(150, 65%, 95%, 1);
+    background-color: hsla(150, 75%, 45%, 1);
+}
+.btn-vizsec, .btn-vizsec:focus {
+    color: hsla(150, 75%, 45%, 1);
+    background-color: hsla(150, 65%, 95%, 1);
 }
