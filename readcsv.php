@@ -1,5 +1,5 @@
 <?php
-$csv = array_map('str_getcsv', file('2018/openaccessvis2018.csv'));
+$csv = array_map('str_getcsv', file($dataFilename));
 array_walk($csv, function(&$a) use ($csv) {
   $a = array_combine($csv[0], $a);
 });
