@@ -169,6 +169,7 @@ function buildPage() {
   // load thumbnails last
   thumbnails.attr("src", getThumbnailPath);
   mobileThumbnails.attr("src", getThumbnailPath);
+  parseURL();
 } // end buildPage()
 
 
@@ -368,6 +369,21 @@ function checkCompleteness() {
 function justShowClosed() { 
   d3.selectAll('.paper').style("display", "none");
   d3.selectAll('.closedAccess').style("display", "block");
+}
+function justShowOpen() { 
+  d3.selectAll('.paper').style("display", "block");
+  d3.selectAll('.closedAccess').style("display", "none");
+}
+function justShowFullOpen() { 
+  d3.selectAll('.paper').style("display", "none");
+  d3.selectAll('.fullOpenAccess').style("display", "block");
+}
+function parseURL() {
+  if (new URL(window.location.href).searchParams.get("onlyclosed") == "") justShowClosed();
+  else if (new URL(window.location.href).searchParams.get("onlyopen") == "") justShowOpen();
+  else if (new URL(window.location.href).searchParams.get("onlyfullopen") == "") justShowFullOpen();
+  if (location.hash != "")
+    d3.select(location.hash).node().scrollIntoView();
 }
 
 // after this file is fully parsed...
