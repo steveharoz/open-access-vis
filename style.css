@@ -44,12 +44,28 @@ h1 svg:hover { fill: #5C7E99; }
     margin-bottom: -3em; /* to let left margin of expandInfo overlap with this */
     cursor: pointer;
     clear: both;
+    width: 20%;
+    display: flex;
+}
+.paper .thumbExpander .conferenceTrack {
+    background-color: #f0f0ff;
+    width: 20%;
+}
+.paper .thumbExpander .conferenceTrack span {
+    width: 4em;
+    text-transform: uppercase;
+    transform-origin: 0% 0%;
+    transform: rotate(-90deg) translate(-0.6em, -3.6em);
+    transform-origin: 100% 0%;
+    font-weight: bold;
+    display: block;
+    text-align: right;
 }
 .paper .thumbExpander .spacer { 
-    width: 100%;
+    width: 80%;
 }
 .paper .thumbExpander .thumb {
-    left: 0;
+    /* left: 0; */
     padding: 1px;
     width: 100%;
     min-width: 100%;
@@ -57,15 +73,16 @@ h1 svg:hover { fill: #5C7E99; }
 }
 .paper .thumbExpander .thumbExpanderContainer { 
     position: absolute;
-    padding: inherit;
-    width: 100%;
+    /* padding: inherit; */
+    width: 80%;
     top: 0;
-    left: 0;
+    /* left: 0; */
 }
 .paper .thumbExpander .thumbExpanderContainer .thumbContainer {
     background-color: rgba(0, 0, 0, 0.08); 
-    width: 100%;
+    width: 80%;
     clear: both;
+    margin-left: 20%;
 }
 .paper .thumbExpander:hover .thumbExpanderContainer .expander { visibility: visible; }
 .paper .thumbExpander:active .thumbExpanderContainer .expander { opacity: 1; }
@@ -83,6 +100,9 @@ h1 svg:hover { fill: #5C7E99; }
 
 .paper.fullOpenAccess .thumbExpander .thumb {
     opacity: 1;
+}
+.paper .paperMetadata {
+    width: 60%;
 }
 .paper p, .paper h4 {
     margin-bottom: 0.1em;

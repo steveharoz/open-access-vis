@@ -105,7 +105,8 @@ function buildPage() {
   
   ///// thumbnail /////
   var left = papers.append("div")
-    .classed("col-sm-3 col-sm-2 hidden-xs thumbExpander", true);
+    .classed("col-sm-2 hidden-xs thumbExpander", true);
+  left.append("div").classed("conferenceTrack", true).append("span").text(d => d.ConferenceTrack);
   left.append("img")
     .classed("spacer", true)
     .attr("src", "images/blank.png");
@@ -121,7 +122,7 @@ function buildPage() {
 
   ///// basic info /////
   var mid = papers.append("div")
-    .classed("col-sm-8 col-xs-12", true);
+    .classed("col-sm-8 col-xs-12 paperMetadata", true);
   mid.append("h4")
         .classed("title", true)
         .append("a")
