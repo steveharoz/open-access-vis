@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
 body {
-    font-family: Segoe UI,Roboto,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+    font-family: /*Segoe UI,*/Roboto,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
     font-weight: 400;
     padding-bottom: 1em;
 }
@@ -91,7 +91,7 @@ h1 svg:hover { fill: #5C7E99; }
 .paper .title {
     font-size: inherit;
     line-height: inherit;
-    font-weight: 400; 
+    font-weight: 500; 
     margin-top: -0.2em;
 }
 .paper .title a, .paper .title a:visited {
