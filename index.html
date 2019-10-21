@@ -10,7 +10,7 @@
     <meta name="twitter:creator" content="@sharoz" />
     <meta name="twitter:title" content="Open Access VIS" />
     <meta name="twitter:description" content="A collection of open access research at the VIS conference"/>
-    <meta name="twitter:image" content="http://oavis.steveharoz.com/images/summary.png" />
+    <meta name="twitter:image" content="http://oavis.org/images/summary.png" />
     <link rel="shortcut icon" href="images/favicon.ico" />
     <title>Open Access VIS</title>
 
@@ -43,8 +43,10 @@
 
         <div class="row">
           <div class="col-lg-10 col-lg-offset-1">
-            <p>A collection of open access visualization research at the VIS 2018 conference. <a href="about.html">Info about the symbols and open access.</a> To edit the data, see <a href="https://github.com/steveharoz/open-access-vis#how-you-can-contribute-to-open-access-vis">GitHub</a>.</p>
-            <p>Also see Open Access VIS for <a href="/workshops.html">2018 Workshops</a>, <a href="/2017/">2017</a>, and <a href="/2017/workshops.html">2017 Workshops</a>.</p>
+            <p>A collection of open access visualization research at the VIS 2019 conference. <a href="about.html">Info about the symbols and open access.</a></p>
+            <p>To edit the data, please <a href="https://github.com/steveharoz/open-access-vis#how-you-can-contribute-to-open-access-vis">file an issue</a>.</p>
+            <p>Open Access VIS was made by <a href="http://twitter.com/sharoz">Steve Haroz</a> with helpful contributions from <a href="https://twitter.com/_mcnutt_">Andrew McNutt</a> and <a href="https://twitter.com/jamesscottbrown">James Scott-Brown</a>.</p>
+            <p>See past years <a href="/2018">2018</a>, and <a href="/2017/">2017</a>.</p>
           </div>
         </div>
 
@@ -73,7 +75,7 @@
         
         <div id="fetchable">
             <?php 
-              $dataFilename = "2018/openaccessvis2018.csv"; 
+              $dataFilename = "2019/openaccessvis2019.csv"; 
               include_once("readcsv.php"); 
             ?>
         </div>
@@ -87,13 +89,13 @@
     <!-- settings -->
     <script> function require(a) {} </script>
     <script> 
-      var dataFilename = "2018/openaccessvis2018.csv";
-      var thumbnailFolder = "2018/thumbnails/"; 
-      var journals = {"TVCG": "Transactions on Visualization and Computer Graphics", "CGA": "Computer Graphics and Applications", "VAST": "Proceedings of IEEE VAST 2018"};
+      var dataFilename = "2019/openaccessvis2019.csv";
+      var thumbnailFolder = "2019/thumbnails/"; 
+      var journals = {"TVCG": "Transactions on Visualization and Computer Graphics", "CG&A": "Computer Graphics and Applications", "VAST": "Proceedings of IEEE VAST 2019", "Short": "?????"};
     </script>
     <!-- load data via php -->
     <?php 
-      $dataFilename = "2018/openaccessvis2018.csv"; 
+      $dataFilename = "2019/openaccessvis2019.csv"; 
       include_once("loadfile.php");
     ?>
     <script src="js/d3.v4.min.js"></script>
