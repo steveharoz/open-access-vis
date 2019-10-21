@@ -124,7 +124,9 @@ function buildPage() {
     .classed("col-sm-8 col-xs-12", true);
   mid.append("h4")
         .classed("title", true)
-        .text(d => d.Title);
+        .append("a")
+          .attr("href", d => d.AuthorPDF)
+          .text(d => d.Title);
   mid.append("p")
         .classed("authors", true)
         .text(d => d.Authors);
@@ -143,7 +145,6 @@ function buildPage() {
     .classed("expander", true)
     .attr("src", "images/chevron-circle-down.svg");
   mobileExpander.on("click", (d,i) => expandEventHandler(d));
-  right.appendLink("PDF", "PDF", d => d.AuthorPDF);
   right.appendLink("preregistered", "Preregistered", d => d.Preregistered);
   right.appendLink("sourceMaterial", "Data Collection", d => d.DataCollectionMaterials);
   right.appendLink("data", "Empirical Data", d => d.Data);
