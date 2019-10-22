@@ -148,10 +148,10 @@ function buildPage() {
     .classed("expander", true)
     .attr("src", "images/chevron-circle-down.svg");
   mobileExpander.on("click", (d,i) => expandEventHandler(d));
-  right.appendLink("preregistered", "Preregistered", d => d.Preregistered);
-  right.appendLink("sourceMaterial", "Data Collection", d => d.DataCollectionMaterials);
-  right.appendLink("data", "Empirical Data", d => d.Data);
-  right.appendLink("computationMaterial", "Computation", d => d.ComputationalMatrials);
+  right.appendLink("preregistered", "Preregistered", d => d.Preregistered, "A prespecified study plan", "Either this paper does not include a study, \nor its studies are exploratory, \nwhich may warrant heightened skepticism.");
+  right.appendLink("sourceMaterial", "Data Collection", d => d.DataCollectionMaterials, "Materials needed to replicate empirical data collection", "This paper either did not collect any empirical data, \nor its data collection is not available for reviewer or reader scrutiny, \nwhich may warrant heightened skepticism.");
+  right.appendLink("data", "Empirical Data", d => d.Data, "Study or scraped data", "Either this paper did not collect any empirical data \nor its data is not available for reader or reviewer scrutiny, \nwhich may warrant heightened skepticism.");
+  right.appendLink("computationMaterial", "Computation", d => d.ComputationalMatrials, "Materials needed to reproduce analyses and computations", "This paper either did perform any analyses or computations, \nor its code not available for reviewer or reader scrutiny, \nwhich may warrant heightened skepticism.");
 
   ///// expander content  /////
   var expandInfo = papers.append("div")
@@ -228,12 +228,12 @@ function formatTimeRange(start, end) {
 }
 
 // add a link and icon
-d3.selection.prototype.appendLink = function (css, text, href) {
+d3.selection.prototype.appendLink = function (css, text, href, tooltip_yes, tooltip_no) {
   var link = this.append("a")
     .classed("link " + css, true)
     .attr("target", "_blank")
     .attr("href", href)
-    .attr("title", d => isOpenAccessDomain(href(d)) ? "Open access repository with permanent URL" : "Personal/Institutional site")
+    .attr("title", d => isOpenAccessDomain(href(d)) ? tooltip_yes : tooltip_no)
     .classed("OADomain", d => isOpenAccessDomain(href(d)));
 
   link.append("img")

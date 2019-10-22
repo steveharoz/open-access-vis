@@ -166,7 +166,6 @@ h1 svg:hover { fill: #5C7E99; }
 .paper .links { margin-top: -.2em; padding-right: 0; margin-bottom: -2em; }
 .paper .links .expander { display: none; }
 .paper .link[href=""] { 
-    pointer-events: none;
     cursor: default;
     opacity: 0.1; 
 }
