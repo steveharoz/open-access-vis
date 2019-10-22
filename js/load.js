@@ -138,7 +138,7 @@ function buildPage() {
         .text(d => formatTimeRange(d.ConferenceTimeStart, d.ConferenceTimeEnd) + "  " + d.ConferenceDay + "  " + d.ConferenceRoom);
   mid.append("p")
         .classed("closedAccessMessage", true)
-        .html("This paper does not appear to be available on a persistent repository. Please encourage the authors to post their work. Before citing this paper in your work, be aware that your readers may not be able to access it.");
+        .html('This paper does not appear to be available on an open persistent repository. <a href="https://osf.io/4n372">Please encourage the authors to post their work.</a> Before citing this paper in your work, be aware that your readers may not be able to access it.');
 
   ///// links /////
   var right = papers.append("div")
