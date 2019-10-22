@@ -77,7 +77,7 @@ function buildPage() {
   days = days.append("div")
     .classed("day", true)
     .classed("row", true)
-    .attr("id", d => d.key.replace(" ", "_"))
+    .attr("id", d => d.key.split("|")[1].replace(" ", "_"))
     .append("div")
         .classed(style, true);
   
@@ -101,6 +101,7 @@ function buildPage() {
         .attr("id", d => d.simpleName)
         .attr("class", d => d.ReviewVenue.toLowerCase())
         .classed("paper row", true)
+        .classed("journal", d => d.ReviewVenue == "CG&A" || d.ReviewVenue == "TVCG")
         .classed("fullOpenAccess", d => isOpenAccessDomain(d.AuthorPDF))
         .classed("closedAccess", d => d.closedAccess);
   

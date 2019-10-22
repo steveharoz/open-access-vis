@@ -342,6 +342,14 @@ h1 svg:hover { fill: #5C7E99; }
     color: hsla(0, 100%, 70%, 1);
     background-color: hsla(0, 65%, 95%, 1);
 }
+.btn-short:hover, .btn-short:focus:hover {
+    color: hsla(280, 50%, 97%, 1);
+    background-color: hsla(280, 50%, 60%, 1);
+}
+.btn-short, .btn-short:focus {
+    color: hsla(280, 50%, 60%, 1);
+    background-color: hsla(280, 50%, 97%, 1);
+}
 .btn-other:hover, .btn-other:focus:hover {
     color: hsla(60, 65%, 95%, 1);
     background-color: hsla(60, 75%, 45%, 1);
