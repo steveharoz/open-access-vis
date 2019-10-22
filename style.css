@@ -118,14 +118,17 @@ h1 svg:hover { fill: #5C7E99; }
 .paper .title {
     font-size: inherit;
     line-height: inherit;
-    font-weight: 500; 
+    font-weight: 400; 
     margin-top: -0.2em;
 }
 .paper .title a, .paper .title a:visited {
-    color: black;
+    color: hsla(0,0%,0%,0.75);
     text-decoration-color: #777;
 }
 .paper.fullOpenAccess .title { font-weight: 500; }
+.paper.fullOpenAccess .title a { 
+    color: black;
+    text-decoration-color: #777; }
 
 .paper .time { font-family: Consolas, monaco, monospace; white-space: pre; }
 .paper .expandInfo { margin-left: calc(20% - 20px); }
@@ -228,6 +231,7 @@ h1 svg:hover { fill: #5C7E99; }
 .paper.closedAccess .links,
 .paper.closedAccess .expander,
 .paper.closedAccess .time { display: none; }
+.paper.closedAccess .paperMetadata { font-size: 80%;}
 .paper.closedAccess .title, 
 .paper.closedAccess .authors,
 .paper.closedAccess .closedAccessMessage,
