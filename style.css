@@ -70,6 +70,8 @@ h1 svg:hover { fill: #5C7E99; }
     display: block;
     text-align: right;
 }
+.paper .mobileReviewLabel { display: none;}
+
 .paper .thumbExpander .spacer { 
     width: 80%;
 }
@@ -249,7 +251,25 @@ h1 svg:hover { fill: #5C7E99; }
 
     .paper { margin-bottom: 0.5em; }
     
-
+    .paper .mobileReviewLabel {
+        background-color: hsla(60, 75%, 45%, 1);
+        color: #fafaea;
+        display: block;
+        margin-left: 15px;
+        width: 5%;
+        padding: 1px;
+        text-align: center;
+        overflow: hidden;
+        min-height: 6em;
+    }
+    .paper .mobileReviewLabel span { 
+        text-align: right;
+        width: 4em;
+        transform: rotate(-90deg) translate(-0.6em, -4.2em);
+        transform-origin: 100% 0%;
+        display: block;
+    }
+    .paper .paperMetadata { width: 90%; padding-left: 10px; }
     .paper .authors {
         white-space: nowrap;
         overflow: hidden; 
@@ -306,15 +326,15 @@ h1 svg:hover { fill: #5C7E99; }
 
 /* Track-specific styles */
 
-.paper.infovis .conferenceTrack { background-color: hsla(240, 100%, 80%, 1); }
-.paper.vast    .conferenceTrack { background-color: hsl(120, 50%, 70%); }
-.paper.scivis  .conferenceTrack { background-color: hsla(0,   100%, 80%, 1); }
-.paper.short   .conferenceTrack { background-color: hsla(280,  50%, 70%, 1); }
+.paper.infovis .conferenceTrack, .paper.infovis .mobileReviewLabel { background-color: hsla(240, 100%, 80%, 1); }
+.paper.vast    .conferenceTrack, .paper.vast    .mobileReviewLabel { background-color: hsl(120, 50%, 70%); }
+.paper.scivis  .conferenceTrack, .paper.scivis  .mobileReviewLabel { background-color: hsla(0,   100%, 80%, 1); }
+.paper.short   .conferenceTrack, .paper.short   .mobileReviewLabel { background-color: hsla(280,  50%, 70%, 1); }
 
-.infovis .conferenceTrack { color: #f0f0ff; }
-.vast    .conferenceTrack { color: #f0fff0; }
-.scivis  .conferenceTrack { color: #fff0f0; }
-.short   .conferenceTrack { color: #f7e7f7; }
+.infovis .conferenceTrack, .infovis .mobileReviewLabel { color: #f0f0ff; }
+.vast    .conferenceTrack, .vast    .mobileReviewLabel { color: #f0fff0; }
+.scivis  .conferenceTrack, .scivis  .mobileReviewLabel { color: #fff0f0; }
+.short   .conferenceTrack, .short   .mobileReviewLabel { color: #f7e7f7; }
 
 /* .infovis h3::before { content: "INFO"; }
 .vast    h3::before { content: "VAST"; }

@@ -123,8 +123,12 @@ function buildPage() {
   left.on("click", (d,i) => expandEventHandler(d));
 
   ///// basic info /////
+  var mobilelabel = papers.append("div")
+    .classed("col-xs-1 mobileReviewLabel", true)
+    .append("span")
+    .text(d => d.ReviewVenue);
   var mid = papers.append("div")
-    .classed("col-sm-8 col-xs-12 paperMetadata", true);
+    .classed("col-sm-8 col-xs-11 paperMetadata", true);
   mid.append("h4")
         .classed("title", true)
         .append("a")
@@ -142,7 +146,7 @@ function buildPage() {
 
   ///// links /////
   var right = papers.append("div")
-    .classed("col-sm-2 col-xs-12 links", true);
+    .classed("col-sm-2 col-sm-offset-0 col-xs-11 col-xs-offset-1 links", true);
   var mobileExpander = right.append("div").classed("expanderContainer", true)
     .append("img")
     .classed("expander", true)
