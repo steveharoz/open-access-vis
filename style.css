@@ -54,10 +54,11 @@ h1 svg:hover { fill: #5C7E99; }
     display: flex;
 }
 .paper .thumbExpander .conferenceTrack {
-    background-color: #fafaea;
+    background-color: hsla(60, 75%, 45%, 1);
     width: 20%;
     margin-bottom: 4.5px;
     margin-top: 1px;
+    color: #fafaea;
 }
 .paper .thumbExpander .conferenceTrack span {
     width: 4em;
@@ -302,17 +303,15 @@ h1 svg:hover { fill: #5C7E99; }
 
 /* Track-specific styles */
 
-.infovis .paper .conferenceTrack { background-color: hsla(240, 100%, 80%, 1); }
-.vast    .paper .conferenceTrack { background-color: hsl(120, 50%, 70%); }
-.scivis  .paper .conferenceTrack { background-color: hsla(0,   100%, 80%, 1); }
-.short   .paper .conferenceTrack { background-color: hsla(280,  50%, 70%, 1); }
-.other   .paper .conferenceTrack { background-color: hsla(60, 75%, 45%, 1); }
+.paper.infovis .conferenceTrack { background-color: hsla(240, 100%, 80%, 1); }
+.paper.vast    .conferenceTrack { background-color: hsl(120, 50%, 70%); }
+.paper.scivis  .conferenceTrack { background-color: hsla(0,   100%, 80%, 1); }
+.paper.short   .conferenceTrack { background-color: hsla(280,  50%, 70%, 1); }
 
 .infovis .conferenceTrack { color: #f0f0ff; }
 .vast    .conferenceTrack { color: #f0fff0; }
 .scivis  .conferenceTrack { color: #fff0f0; }
 .short   .conferenceTrack { color: #f7e7f7; }
-.other   .conferenceTrack { color: #fafaea; }
 
 /* .infovis h3::before { content: "INFO"; }
 .vast    h3::before { content: "VAST"; }

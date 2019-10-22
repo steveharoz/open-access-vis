@@ -50,7 +50,7 @@ function LoadCSVData(data) {
     .key(d => (dayNames.indexOf(d.ConferenceDay) + (+d.PM * 0.5)) + "|" + d.ConferenceDay + " " + (d.PM ? "afternoon" : "morning"))
     .sortKeys((a, b) => a.split("|")[0] - b.split("|")[0])
     // session
-    .key(d => d.ConferenceTrack + "|" + d.ConferenceSession)
+    .key(d => d.ConferenceSession)
     .sortKeys((a, b) => a.localeCompare(b))
     .entries(dataCSV);
   dataNested = dataNested.map(d => {
@@ -77,7 +77,7 @@ function buildPage() {
   days = days.append("div")
     .classed("day", true)
     .classed("row", true)
-    .attr("id", d => d.key.split("|")[1].replace(" ", "_"))
+    .attr("id", d => d.key.replace(" ", "_"))
     .append("div")
         .classed(style, true);
   
@@ -90,7 +90,7 @@ function buildPage() {
   var sessions = days.selectAll(".session")
     .data(d => d.values).enter()
     .append("div")
-        .attr("class", d => d.values[0].ConferenceTrack.toLowerCase())
+        //.attr("class", d => d.values[0].ConferenceTrack.toLowerCase())
         .classed("session", true);
   sessions.append("h3").text(d => d.values[0].ConferenceSession);
 
@@ -99,7 +99,7 @@ function buildPage() {
     .data(s => s.values).enter()
     .append("div")
         .attr("id", d => d.simpleName)
-        .attr("class", d => d.ConferenceTrack.toLowerCase())
+        .attr("class", d => d.ReviewVenue.toLowerCase())
         .classed("paper row", true)
         .classed("fullOpenAccess", d => isOpenAccessDomain(d.AuthorPDF))
         .classed("closedAccess", d => d.closedAccess);
@@ -107,7 +107,7 @@ function buildPage() {
   ///// thumbnail /////
   var left = papers.append("div")
     .classed("col-sm-2 hidden-xs thumbExpander", true);
-  left.append("div").classed("conferenceTrack", true).append("span").text(d => d.ConferenceTrack);
+  left.append("div").classed("conferenceTrack", true).append("span").text(d => d.ReviewVenue);
   left.append("img")
     .classed("spacer", true)
     .attr("src", "images/blank.png");
