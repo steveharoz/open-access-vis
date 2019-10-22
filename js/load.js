@@ -237,7 +237,7 @@ d3.selection.prototype.appendLink = function (css, text, href, tooltip_yes, tool
     .classed("link " + css, true)
     .attr("target", "_blank")
     .attr("href", href)
-    .attr("title", d => isOpenAccessDomain(href(d)) ? tooltip_yes : tooltip_no)
+    .attr("title", d => isOpenAccessDomain(href(d)) ? tooltip_yes : href(d)=="" ? tooltip_no : (tooltip_yes + "\n(Not available on an open persistent repository)"))
     .classed("OADomain", d => isOpenAccessDomain(href(d)));
 
   link.append("img")
