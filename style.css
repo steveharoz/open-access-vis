@@ -282,6 +282,7 @@ h1 svg:hover { fill: #5C7E99; }
         overflow: auto; 
         text-overflow: clip;
     }
+    .paper .time { text-overflow: hidden;}
 
 
     .paper .links { 
