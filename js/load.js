@@ -10,7 +10,7 @@ var dayAbrevs = {"Saturday morning": "Sa AM", "Saturday afternoon": "Sa PM",
                  "Thursday morning": "Th AM", "Thursday afternoon": "Th PM", 
                  "Friday morning": "F AM", "Friday afternoon": "F PM"};
 var OADomains = ["osf.io", "arxiv.org", "biorxiv.org", "psyarxiv.org", "/hal.", "/eprints.", "/openaccess.", "ora.ox.ac.uk", "kops.uni-konstanz.de", "figshare"];
-var linkImages = {"PDF": "file-text", "Data Collection": "materials", "Computation": "reproducible", "Empirical Data": "data", "Preregistered": "preregistered", "Explanation or demo": "info"};
+var linkImages = {"PDF": "file-text", "Data Collection": "materials", "Code or Analyses": "reproducible", "Empirical Data": "data", "Preregistered": "preregistered", "Explanation or demo": "info"};
 var timeParser = d3.timeParse("%I:%M %p");
 var style = "col-md-12 col-lg-10 col-lg-offset-1";
 var untouched = true;
@@ -155,7 +155,7 @@ function buildPage() {
   right.appendLink("preregistered", "Preregistered", d => d.Preregistered, "A prespecified study plan", "Either this paper does not include a study, \nor its studies are exploratory, \nwhich may warrant heightened skepticism.");
   right.appendLink("sourceMaterial", "Data Collection", d => d.DataCollectionMaterials, "Materials needed to replicate empirical data collection", "This paper either did not collect any empirical data, \nor its data collection is not available for reviewer or reader scrutiny, \nwhich may warrant heightened skepticism.");
   right.appendLink("data", "Empirical Data", d => d.Data, "Study or scraped data", "Either this paper did not collect any empirical data \nor its data is not available for reader or reviewer scrutiny, \nwhich may warrant heightened skepticism.");
-  right.appendLink("computationMaterial", "Computation", d => d.ComputationalMatrials, "Materials needed to reproduce analyses and computations", "This paper either did perform any analyses or computations, \nor its code not available for reviewer or reader scrutiny, \nwhich may warrant heightened skepticism.");
+  right.appendLink("computationMaterial", "Code or Analyses", d => d.ComputationalMatrials, "Materials needed to reproduce analyses and computations", "This paper either did perform any analyses or computations, \nor its code not available for reviewer or reader scrutiny, \nwhich may warrant heightened skepticism.");
 
   ///// expander content  /////
   var expandInfo = papers.append("div")
