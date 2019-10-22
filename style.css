@@ -18,10 +18,14 @@ h1 svg:hover { fill: #5C7E99; }
 .session { 
     margin-bottom: 0.5em;
     padding: 1em 1em .5em 1em; 
-    background-color: #f0f0f0;
+    background-color: #f7f7f7;
 }
 /* .day:nth-of-type(2n+1) .session { background-color: #e7e7e7; } */
-.session h3 { margin-top: 0; margin-bottom: 0.75em; }
+.session h3 { 
+    margin-top: 0; 
+    margin-bottom: 0.75em; 
+    color: #777; 
+}
 .session h3::before {
     display: inline-block;
     font-size: 10px;
@@ -52,7 +56,8 @@ h1 svg:hover { fill: #5C7E99; }
 .paper .thumbExpander .conferenceTrack {
     background-color: #fafaea;
     width: 20%;
-    margin-bottom: 5px;
+    margin-bottom: 4.5px;
+    margin-top: 1px;
 }
 .paper .thumbExpander .conferenceTrack span {
     width: 4em;
@@ -68,8 +73,7 @@ h1 svg:hover { fill: #5C7E99; }
     width: 80%;
 }
 .paper .thumbExpander .thumb {
-    /* left: 0; */
-    padding: 1px;
+    padding: 1px 1px 1px 0;
     width: 100%;
     min-width: 100%;
     opacity: 0.67;
@@ -123,7 +127,7 @@ h1 svg:hover { fill: #5C7E99; }
 .paper.fullOpenAccess .title { font-weight: 500; }
 
 .paper .time { font-family: Consolas, monaco, monospace; white-space: pre; }
-.paper .expandInfo { margin-left: calc(16.666666% - 20px); }
+.paper .expandInfo { margin-left: calc(20% - 20px); }
 .paper .expandInfo .mobileThumb { display: none; }
 .paper .expandInfo .abstract { margin-top: .5em; }
 .paper .expandInfo .videoWrapper.empty { display: none; }
@@ -304,11 +308,11 @@ h1 svg:hover { fill: #5C7E99; }
 .short   .paper .conferenceTrack { background-color: hsla(280,  50%, 70%, 1); }
 .other   .paper .conferenceTrack { background-color: hsla(60, 75%, 45%, 1); }
 
-.infovis span { color: #f0f0ff; }
-.vast    span { color: #f0fff0; }
-.scivis  span { color: #fff0f0; }
-.short   span { color: #f7e7f7; }
-.other   span { color: #fafaea; }
+.infovis .conferenceTrack { color: #f0f0ff; }
+.vast    .conferenceTrack { color: #f0fff0; }
+.scivis  .conferenceTrack { color: #fff0f0; }
+.short   .conferenceTrack { color: #f7e7f7; }
+.other   .conferenceTrack { color: #fafaea; }
 
 /* .infovis h3::before { content: "INFO"; }
 .vast    h3::before { content: "VAST"; }
