@@ -18,7 +18,9 @@ h1 svg:hover { fill: #5C7E99; }
 .session { 
     margin-bottom: 0.5em;
     padding: 1em 1em .5em 1em; 
+    background-color: #f0f0f0;
 }
+/* .day:nth-of-type(2n+1) .session { background-color: #e7e7e7; } */
 .session h3 { margin-top: 0; margin-bottom: 0.75em; }
 .session h3::before {
     display: inline-block;
@@ -48,8 +50,9 @@ h1 svg:hover { fill: #5C7E99; }
     display: flex;
 }
 .paper .thumbExpander .conferenceTrack {
-    background-color: #f0f0ff;
+    background-color: #fafaea;
     width: 20%;
+    margin-bottom: 5px;
 }
 .paper .thumbExpander .conferenceTrack span {
     width: 4em;
@@ -87,10 +90,9 @@ h1 svg:hover { fill: #5C7E99; }
 .paper .thumbExpander:hover .thumbExpanderContainer .expander { visibility: visible; }
 .paper .thumbExpander:active .thumbExpanderContainer .expander { opacity: 1; }
 .paper .thumbExpander .thumbExpanderContainer .expander {
-    width: 25%;
+    width: 30%;
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 45%;
     bottom: 0;
     margin: 0 auto;
     opacity: 0.75;
@@ -296,19 +298,21 @@ h1 svg:hover { fill: #5C7E99; }
 
 /* Track-specific styles */
 
-.infovis { background-color: #f0f0ff; }
-.vast    { background-color: #f0fff0; }
-.scivis  { background-color: #fff0f0; }
-.other  { background-color: #fafaea; }
+.infovis .paper .conferenceTrack { background-color: hsla(240, 100%, 80%, 1); }
+.vast    .paper .conferenceTrack { background-color: hsl(120, 50%, 70%); }
+.scivis  .paper .conferenceTrack { background-color: hsla(0,   100%, 80%, 1); }
+.short   .paper .conferenceTrack { background-color: hsla(280,  50%, 70%, 1); }
+.other   .paper .conferenceTrack { background-color: hsla(60, 75%, 45%, 1); }
 
-.infovis h3 { color: hsla(240, 100%, 80%, 1); }
-.vast    h3 { color: hsla(120,  50%, 70%, 1); }
-.scivis  h3 { color: hsla(0,   100%, 80%, 1); }
-.other   h3 { color: hsla(60, 75%, 45%, 1) }
+.infovis span { color: #f0f0ff; }
+.vast    span { color: #f0fff0; }
+.scivis  span { color: #fff0f0; }
+.short   span { color: #f7e7f7; }
+.other   span { color: #fafaea; }
 
-.infovis h3::before { content: "INFO"; }
+/* .infovis h3::before { content: "INFO"; }
 .vast    h3::before { content: "VAST"; }
-.scivis  h3::before { content: "SCI "; margin-right: .1em; }
+.scivis  h3::before { content: "SCI "; margin-right: .1em; } */
 
 
 .btn-infovis:hover, .btn-infovis:focus:hover {

@@ -99,7 +99,8 @@ function buildPage() {
     .data(s => s.values).enter()
     .append("div")
         .attr("id", d => d.simpleName)
-        .attr("class", "paper row")
+        .attr("class", d => d.ConferenceTrack.toLowerCase())
+        .classed("paper row", true)
         .classed("fullOpenAccess", d => isOpenAccessDomain(d.AuthorPDF))
         .classed("closedAccess", d => d.closedAccess);
   
