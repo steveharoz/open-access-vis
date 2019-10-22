@@ -133,6 +133,7 @@ function buildPage() {
         .classed("title", true)
         .append("a")
           .attr("href", d => d.AuthorPDF)
+          .style("pointer-events", d => d.AuthorPDF == "" ? "none" : "all")
           .text(d => d.Title);
   mid.append("p")
         .classed("authors", true)
