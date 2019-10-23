@@ -147,7 +147,7 @@ function buildPage() {
 
   ///// links /////
   var right = papers.append("div")
-    .classed("col-sm-2 col-sm-offset-0 col-xs-11 col-xs-offset-1 links", true);
+    .classed("col-sm-2 col-xs-12 links", true);
   var mobileExpander = right.append("div").classed("expanderContainer", true)
     .append("img")
     .classed("expander", true)

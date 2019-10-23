@@ -133,7 +133,7 @@ h1 svg:hover { fill: #5C7E99; }
     text-decoration-color: #777; }
 
 .paper .time { font-family: Consolas, monaco, monospace; white-space: pre; }
-.paper .expandInfo { margin-left: calc(20% - 20px); }
+.paper .expandInfo { margin-left: calc(20% - 20px); width: 60%; }
 .paper .expandInfo .mobileThumb { display: none; }
 .paper .expandInfo .abstract { margin-top: .5em; }
 .paper .expandInfo .videoWrapper.empty { display: none; }
@@ -313,7 +313,7 @@ h1 svg:hover { fill: #5C7E99; }
     .paper .link span { display: none; }
 
 
-    .paper .expandInfo { margin-left: 0; margin-bottom: 2em; }
+    .paper .expandInfo { margin-left: 0; margin-bottom: 2em; width: 100%; }
     .paper .expandInfo .mobileThumb { 
         width: 100%; 
         display: block;
