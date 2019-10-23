@@ -29,8 +29,8 @@ The explanation page is for sites that contain more than the basic information. 
 
 * The image must be exactly 400 x 300 pixels.
 * Try to find a figure that is explanatory rather than just eye candy.
-* The filename is the first non-article word in the title + `"_"` + first name of first author + `".png"` (all lower case).  
-For example, "A Nifty Vis System" by Jane Smith and John Smith would become `nifty_jane.png`
+* The filename is the first non-article word in the title + `"_"` + the next word + `"_"` + first name of first author + `".png"` (all lower case).  
+For example, "A Nifty Vis System" by Jane Smith and John Smith would become `nifty_vis_jane.png`
 
 For now, thumbnails are not in the repository. Feel free to paste new ones into a github issue or email them to me.
 
