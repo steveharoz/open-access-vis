@@ -6,11 +6,9 @@ Please create an [issue](https://github.com/steveharoz/open-access-vis/issues) t
 * Fix incorrect data
 * Add thumbnails (a missing thumbnail or a better version of an existing one)
 
+Please do not edit the CSV via a pull request. For data updates, only use issues.
+
 **Important: Do not retrieve any information from IEEE (especially abstracts and thumbnails). Everything should come from other sources.**
-
-## Adding a workshop:
-
-All you have to do is add the data to [the workshop spreadsheet](https://docs.google.com/spreadsheets/d/11ZNUflBnK47ljl_g0NVJFntP1xb8qsSv-PcpinoeWRw). Email me for more info.
 
 ## URLs:
 
@@ -29,7 +27,7 @@ The explanation page is for sites that contain more than the basic information. 
 
 ## Thumbnails
 
-* The image should be 400 x 300 pixels.
+* The image must be exactly 400 x 300 pixels.
 * Try to find a figure that is explanatory rather than just eye candy.
 * The filename is the first non-article word in the title + `"_"` + first name of first author + `".png"` (all lower case).  
 For example, "A Nifty Vis System" by Jane Smith and John Smith would become `nifty_jane.png`
