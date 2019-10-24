@@ -332,7 +332,7 @@ h1 svg:hover { fill: #5C7E99; }
 .scivis,  .btn-scivis  { --hue:   0; --sat: 100%; --lum: 80%; }
 .short,   .btn-short   { --hue: 280; --sat:  50%; --lum: 70%; }
 .journal, .btn-other   { --hue:  60; --sat:  75%; --lum: 45%; }
-.paper.closedAccess { --sat:  15%; --lum: 80%; }
+.paper.closedAccess { --sat:  0%; --lum: 80%; }
 /* .btn-day               { --hue:   0; --sat:   0%; --lum: 70%; } */
 
 
