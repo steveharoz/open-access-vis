@@ -13,6 +13,7 @@ h1 svg:hover { fill: #5C7E99; }
     font-size: 0;
 }
 .controls > div { padding-bottom: 6px; }
+.controls button img { vertical-align: top; }
 .footer { padding-top: 2em; }
 
 .session { 
@@ -54,7 +55,7 @@ h1 svg:hover { fill: #5C7E99; }
     display: flex;
 }
 .paper .thumbExpander .conferenceTrack {
-    background-color: hsla(60, 75%, 45%, 1);
+    /* background-color: hsla(60, 75%, 45%, 1); */
     width: 20%;
     margin-bottom: 4.5px;
     margin-top: 1px;
@@ -265,7 +266,7 @@ h1 svg:hover { fill: #5C7E99; }
     .paper .mobileReviewLabel span { 
         text-align: right;
         width: 4em;
-        transform: rotate(-90deg) translate(-0.6em, -4.2em);
+        transform: rotate(-90deg) translate(-0.6em, -4em);
         transform-origin: 100% 0%;
         display: block;
     }
@@ -326,11 +327,16 @@ h1 svg:hover { fill: #5C7E99; }
 
 
 /* Track-specific styles */
+.infovis, .btn-infovis { --hue: 240; --sat: 100%; --lum: 80%; }
+.vast,    .btn-vast    { --hue: 120; --sat: 50%;  --lum: 70%; }
+.scivis,  .btn-scivis  { --hue:   0; --sat: 100%; --lum: 80%; }
+.short,   .btn-short   { --hue: 280; --sat:  50%; --lum: 70%; }
+.journal, .btn-other   { --hue:  60; --sat:  75%; --lum: 45%; }
+.paper.closedAccess { --sat:  15%; --lum: 80%; }
+/* .btn-day               { --hue:   0; --sat:   0%; --lum: 70%; } */
 
-.paper.infovis .conferenceTrack, .paper.infovis .mobileReviewLabel { background-color: hsla(240, 100%, 80%, 1); }
-.paper.vast    .conferenceTrack, .paper.vast    .mobileReviewLabel { background-color: hsl(120, 50%, 70%); }
-.paper.scivis  .conferenceTrack, .paper.scivis  .mobileReviewLabel { background-color: hsla(0,   100%, 80%, 1); }
-.paper.short   .conferenceTrack, .paper.short   .mobileReviewLabel { background-color: hsla(280,  50%, 70%, 1); }
+
+.paper .thumbExpander .conferenceTrack, .paper .mobileReviewLabel { background-color: hsla(var(--hue), var(--sat), var(--lum), 1); }
 
 .infovis .conferenceTrack, .infovis .mobileReviewLabel { color: #f0f0ff; }
 .vast    .conferenceTrack, .vast    .mobileReviewLabel { color: #f0fff0; }
@@ -342,46 +348,15 @@ h1 svg:hover { fill: #5C7E99; }
 .scivis  h3::before { content: "SCI "; margin-right: .1em; } */
 
 
-.btn-infovis:hover, .btn-infovis:focus:hover {
-    color: hsla(240, 100%, 97%, 1);
-    background-color: hsla(240, 100%, 80%, 1);
+.btn-track:hover, .btn-track:focus:hover {
+    color: hsla(var(--hue), 100%, 97%, 1);
+    background-color: hsla(var(--hue), var(--sat), var(--lum), 1);
 }
-.btn-infovis, .btn-infovis:focus {
-    color: hsla(240, 100%, 70%, 1);
-    background-color: hsla(240, 100%, 97%, 1);
+.btn-track, .btn-track:focus {
+    color: hsla(var(--hue), var(--sat), var(--lum), 1);
+    background-color: hsla(var(--hue), 100%, 97%, 1);
 }
-.btn-vast:hover, .btn-vast:focus:hover {
-    color: hsla(120, 50%, 97%, 1);
-    background-color: hsla(120, 50%, 60%, 1);
-}
-.btn-vast, .btn-vast:focus {
-    color: hsla(120, 50%, 60%, 1);
-    background-color: hsla(120, 50%, 97%, 1);
-}
-.btn-scivis:hover, .btn-scivis:focus:hover {
-    color: hsla(0, 65%, 95%, 1);
-    background-color: hsla(0, 100%, 80%, 1);
-}
-.btn-scivis, .btn-scivis:focus {
-    color: hsla(0, 100%, 70%, 1);
-    background-color: hsla(0, 65%, 95%, 1);
-}
-.btn-short:hover, .btn-short:focus:hover {
-    color: hsla(280, 50%, 97%, 1);
-    background-color: hsla(280, 50%, 60%, 1);
-}
-.btn-short, .btn-short:focus {
-    color: hsla(280, 50%, 60%, 1);
-    background-color: hsla(280, 50%, 97%, 1);
-}
-.btn-other:hover, .btn-other:focus:hover {
-    color: hsla(60, 65%, 95%, 1);
-    background-color: hsla(60, 75%, 45%, 1);
-}
-.btn-other, .btn-other:focus {
-    color: hsla(60, 75%, 45%, 1);
-    background-color: hsla(60, 65%, 95%, 1);
-}
+
 
 
 .beliv { background-color: hsla(45, 65%, 95%, 1); }
