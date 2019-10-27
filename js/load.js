@@ -290,10 +290,11 @@ function makeCitation(paper) {
   IEEE += paper.DOI ? "DOI:" + paper.DOI + "." : "";
 
   var bibtex = "@Article{" + paper.simpleName + ",\n";
-  bibtex += "  author = " + paper.Authors.split(", ").join(" and ") + "\n";
-  bibtex += "  title = " + paper.Title + "\n";
-  bibtex += "  journal = " + journals[paper.PublicationVenue] + "\n";
-  bibtex += "  year = " + paper.PublicationYear + "\n";
+  bibtex += "  author = " + paper.Authors.split(", ").join(" and ") + ",\n";
+  bibtex += "  title = " + paper.Title + ",\n";
+  bibtex += "  journal = " + journals[paper.PublicationVenue] + ",\n";
+  bibtex += "  year = " + paper.PublicationYear + ",\n";
+  bibtex += "  url = \\url{" + paper.AuthorPDF + "},\n";
   bibtex += "  DOI = " + paper.DOI + "\n";
   bibtex += "}";
 
