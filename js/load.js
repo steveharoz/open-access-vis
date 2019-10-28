@@ -328,8 +328,19 @@ function expandEventHandler(paper) {
   if (paper.closedAccess) 
     return;
   var id = '#' + paper.simpleName;
-  if (paper.Video != "" && d3.select(id + " .videoWrapper").html() == "")
-    d3.select(id + " .videoWrapper").classed("empty", false).html(makeVideoFrame(paper.Video));
+
+  // add video on expand
+  if ( (paper.Talk || paper.Video) != "" && d3.select(id + " .videoWrapper").html() == "") {
+    if (paper.Talk != "") {
+      //d3.select(id + " .videoWrapper").append("p").text("Conference talk:");
+      d3.select(id + " .videoWrapper").classed("empty", false).classed("talk", true).append("div").html(makeVideoFrame(paper.Talk));
+    }
+    else {
+      d3.select(id + " .videoWrapper").classed("empty", false).classed("preview", true).append("div").html(makeVideoFrame(paper.Video));
+    }
+  }
+
+  // 
   d3.select(id).classed("isExpanded", !d3.select(id).classed("isExpanded"));
   $(id + "_expandInfo").collapse('toggle');
 }

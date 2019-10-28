@@ -137,14 +137,15 @@ h1 svg:hover { fill: #5C7E99; }
 .paper .expandInfo { margin-left: calc(20% - 20px); width: 60%; }
 .paper .expandInfo .mobileThumb { display: none; }
 .paper .expandInfo .abstract { margin-top: .5em; }
+.paper .expandInfo .videoWrapper { margin-top: 1.5em;}
+.talk::before { content: "Conference Talk:"; display: block; font-family: Consolas, monaco, monospace; }
 .paper .expandInfo .videoWrapper.empty { display: none; }
-.paper .expandInfo .videoWrapper {
+.paper .expandInfo .videoWrapper div {
 	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
-	margin-top: 1.5em;
+	padding-bottom: 56.25%; /* for 16:9, use 56.25%  */
 	height: 0;
 }
-.paper .expandInfo .videoWrapper iframe {
+.paper .expandInfo .videoWrapper div iframe {
 	position: absolute;
 	top: 0;
 	left: 0;
