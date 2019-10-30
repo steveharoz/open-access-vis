@@ -11,14 +11,16 @@ foreach ($csv as &$value) {
     if ($value['AuthorPDF'] !== "")
         print(' PDF. ');
     else
-        print(' Not found. ');
+        print(' NOT FOUND. ');
     print($value['Authors']);
-    if ($value['SourceMaterials'] !== "")
-        print(' Open Materials badge');
+    if ($value['Preregistered'] !== "")
+        print(' Preregistered');
+    if ($value['DataCollectionMaterials'] !== "")
+        print(' Open Materials');
     if ($value['Data'] !== "")
         print(' Open Data badge');
-    if ($value['Preregistered'] !== "")
-        print(' Preregistered badge');
+    if ($value['ComputationalMatrials'] !== "")
+        print(' Open Materials');
     #print('</a>');
     #print_r($value);
     print("\n<br>\n");
